@@ -8,9 +8,9 @@ import (
 	"os"
 	//"bufio"
 	"sync"
-	"log"
+	//"log"
 	"fmt"
-	"io"
+	//"io"
 	"strconv"
 )
 
@@ -33,28 +33,18 @@ const(
 
 type Metadata map[string][]Label // definicion de tipo para mayor comodidad
 
-var logger *log.Logger
 var data_nodes [CANT_DATANODES]string
+var server *transport.Server
 
 func init() {
 
-	init_logger()
 	init_data_nodes_addrs()
-	start_TCP_server()
+	nn := create_name_node("./blocks/Metadata.json")
+	server = transport.NewServer("namenode") //Manejado por la Api transport
+	server.StartServer(":9000",nn)
 	// Se ejecuta automáticamente antes de main()
 
-	// Creacion del logger
 	}
-
-func init_logger(){
-	f, err := os.OpenFile("./logs/namenode.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		panic(err)
-	}
-
-	logger = log.New( io.MultiWriter(os.Stdout, f), "[namenode] ", log.LstdFlags|log.Lmicroseconds,)
-
-}
 
 func init_data_nodes_addrs(){
 
@@ -72,14 +62,10 @@ func main(){
 }
 
 
-func msg_log(msg string){
-	logger.Println(msg)
-}
-
 func get_local_ip() string {
 	conn, err := net.Dial("udp", "8.8.8.8:80")
 	if err != nil{
-		msg_log("get_local_ip: error al establecer la conexion UDP")
+		server.MsgLog("get_local_ip: error al establecer la conexion UDP")
 	}
 	defer conn.Close()
 
@@ -92,7 +78,18 @@ func get_local_ip() string {
 //TCP server Managment
 
 func (nn *NameNode) HandleConnection(conn net.Conn){
+	defer conn.Close()
+	conn.SetReadDeadline(time.Now().Add(20*time.Second))
+	server.MsgLog("Nueva conexion entrante desde:"+conn.RemoteAddr().String())
 
+	message, err := transport.RecieveMessage(conn)
+	
+	if err != nil{
+		server.MsgLog("Error al recibir el mensaje")
+	}
+
+	fmt.Println("El mensaje recibido es el siguiente: ")
+	fmt.Println(message)
 
 }
 
@@ -102,7 +99,7 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 func (nn *NameNode ) get(archive_name string) []Label{
 	
 	
-	msg_log("Peticion: archivo "+archive_name)
+	server.MsgLog("Peticion: archivo "+archive_name)
 	
 	nn.mu.RLock()
 	data_nodes := nn.metadata[archive_name]
@@ -110,7 +107,8 @@ func (nn *NameNode ) get(archive_name string) []Label{
 	
 	if data_nodes == nil{
 		println("Error archivo no existe en el sistema\n")
-		msg_log("Peticion: denegada archivo no existe")
+		server.MsgLog("Peticion: denegada archivo no existe")
+
 	}
 	
 	

@@ -1,16 +1,13 @@
 package transport
 
 import (
-	"time"
+	"fmt"
  	"net"
 	"encoding/json"
 	"os"
 	//"bufio"
-	"sync"
 	"log"
-	"fmt"
 	"io"
-	"strconv"
 	"encoding/binary"
 )
 // Estructura del servidor inspirada en https://dev.to/jones_charles_ad50858dbc0/build-a-blazing-fast-tcp-server-in-go-a-practical-guide-29d
@@ -38,7 +35,7 @@ type Handler interface {
 func NewServer(who string) *Server{
 	server := &Server{}
 	server.init_logger(who)
-	server.ip = get_local_ip()
+	server.Ip = get_local_ip()
 	return server
 }
 
@@ -54,10 +51,10 @@ func (s *Server) StartServer(port string, handler Handler){
 	s.Listener, err = net.Listen("tcp", port)
 	if err != nil{
 		s.MsgLog("Error al intentar escuchar en el puerto: "+port)
-		return err
+		return 
 	}
 	defer s.Listener.Close()
-	s.MsgLog("Server Started on: "+s.ip+port)
+	s.MsgLog("Server Started on: "+s.Ip+port)
 
 	for {
 		conn,err := s.Listener.Accept()
@@ -90,11 +87,11 @@ func RecieveMessage(conn net.Conn) (Message, error) {
 	err := binary.Read(conn, binary.BigEndian, &length)
 
 	if err != nil {
-		return Mesage{}, err
+		return Message{}, err
 	}
 
 	data := make([]byte, length)
-	_, err := io.ReadFull(conn, data)
+	_, err = io.ReadFull(conn, data)
 	if err != nil {
 		return Message{}, err
 	}
@@ -120,7 +117,7 @@ func (s *Server) init_logger(who string){
 func get_local_ip() string {
 	conn, err := net.Dial("udp", "8.8.8.8:80")
 	if err != nil{
-		msg_log("get_local_ip: error al establecer la conexion UDP")
+		fmt.Println("Get local ip :Error al establecer conexion con servidor UDP")
 	}
 	defer conn.Close()
 
