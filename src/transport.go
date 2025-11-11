@@ -1,0 +1,133 @@
+package transport
+
+import (
+	"time"
+ 	"net"
+	"encoding/json"
+	"os"
+	//"bufio"
+	"sync"
+	"log"
+	"fmt"
+	"io"
+	"strconv"
+	"encoding/binary"
+)
+// Estructura del servidor inspirada en https://dev.to/jones_charles_ad50858dbc0/build-a-blazing-fast-tcp-server-in-go-a-practical-guide-29d
+
+type Server struct{
+	Listener net.Listener		
+	Logger	 *log.Logger
+	Ip			 string
+}
+
+type Message struct{
+	Cmd string 							 `json:"cmd"`
+	Params map[string]string `json:"params"`
+	Data	[]byte 						 `json:"data"` 
+}
+
+// Declara la interfaz que deberan implementar los que deseen utilizar la api
+type Handler interface {
+	HandleConnection(conn net.Conn)
+}
+
+
+//-----------------------------------------------Public Functions----------------------------------------
+
+func NewServer(who string) *Server{
+	server := &Server{}
+	server.init_logger(who)
+	server.ip = get_local_ip()
+	return server
+}
+
+func (s *Server) MsgLog(msg string){
+	s.Logger.Println(msg)
+}
+
+
+
+func (s *Server) StartServer(port string, handler Handler){
+
+	var err error
+	s.Listener, err = net.Listen("tcp", port)
+	if err != nil{
+		s.MsgLog("Error al intentar escuchar en el puerto: "+port)
+		return err
+	}
+	defer s.Listener.Close()
+	s.MsgLog("Server Started on: "+s.ip+port)
+
+	for {
+		conn,err := s.Listener.Accept()
+		if err != nil {
+			s.MsgLog("Error al intentar aceptar la conexion: "+err.Error())
+			continue
+		}
+		go handler.HandleConnection(conn)
+
+	}
+}
+
+// Framing de mensajes (Para asegurar la integridad de los datos)
+
+func SendMessage(conn net.Conn, msg Message) error {
+	f_msg, err := json.Marshal(msg)
+	if err != nil{
+		return err
+	}
+
+	length := uint32(len(f_msg))
+	binary.Write(conn, binary.BigEndian, length)
+
+	_, err = conn.Write(f_msg)
+	return err
+}
+
+func RecieveMessage(conn net.Conn) (Message, error) {
+	var length uint32
+	err := binary.Read(conn, binary.BigEndian, &length)
+
+	if err != nil {
+		return Mesage{}, err
+	}
+
+	data := make([]byte, length)
+	_, err := io.ReadFull(conn, data)
+	if err != nil {
+		return Message{}, err
+	}
+
+	var msg Message
+	err = json.Unmarshal(data, &msg)
+
+	return msg, err
+}
+
+
+//-----------------------------Private Functions-------------------------------------------------------
+
+func (s *Server) init_logger(who string){
+	f, err := os.OpenFile("./logs/namenode.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		panic(err)
+	}
+
+	s.Logger = log.New( io.MultiWriter(os.Stdout, f), "["+who+"] ", log.LstdFlags|log.Lmicroseconds,)
+
+}
+func get_local_ip() string {
+	conn, err := net.Dial("udp", "8.8.8.8:80")
+	if err != nil{
+		msg_log("get_local_ip: error al establecer la conexion UDP")
+	}
+	defer conn.Close()
+
+	local_address := conn.LocalAddr().(*net.UDPAddr)
+
+	return local_address.IP.String()
+}
+
+
+

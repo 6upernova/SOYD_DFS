@@ -1,0 +1,11 @@
+[namenode] 2025/11/10 22:11:40.753971 START TCP: Servidor escuchando en puerto :9000
+[namenode] 2025/11/10 22:12:10.842817 HANDLER: Error leyendo los datos de la conexion
+[namenode] 2025/11/10 22:16:00.667975 HANDLER: Error leyendo los datos de la conexion
+[namenode] 2025/11/10 22:16:23.478614 HANDLER: Error leyendo los datos de la conexion
+[namenode] 2025/11/10 22:16:59.141389 HANDLER: Error leyendo los datos de la conexion
+[namenode] 2025/11/10 23:06:37.422127 START TCP: Servidor escuchando en puerto :9000
+[namenode] 2025/11/10 23:06:51.360668 2025-11-10 23:06:51.360651204 +0000 UTC m=+13.943501937Nueva conexion desde[::1]:9000
+[namenode] 2025/11/10 23:07:11.376951 HANDLER: La conexion con el nodo finalizo
+[namenode] 2025/11/10 23:09:34.460711 START TCP: Servidor escuchando en puerto :9000
+[namenode] 2025/11/10 23:09:53.224315 Nueva conexion desde[::1]:9000
+[namenode] 2025/11/10 23:10:13.237309 HANDLER: La conexion con el nodo finalizo
