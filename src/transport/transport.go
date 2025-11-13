@@ -82,7 +82,7 @@ func SendMessage(conn net.Conn, msg Message) error {
 	return err
 }
 
-func RecieveMessage(conn net.Conn) (Message, error) {
+func (s *Server) RecieveMessage(conn net.Conn) (Message, error) {
 	var length uint32
 	err := binary.Read(conn, binary.BigEndian, &length)
 

@@ -9,3 +9,23 @@
 [namenode] 2025/11/10 23:09:34.460711 START TCP: Servidor escuchando en puerto :9000
 [namenode] 2025/11/10 23:09:53.224315 Nueva conexion desde[::1]:9000
 [namenode] 2025/11/10 23:10:13.237309 HANDLER: La conexion con el nodo finalizo
+[namenode] 2025/11/11 15:54:38.709396 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/11 15:56:48.645768 Nueva conexion entrante desde:[::1]:53120
+[namenode] 2025/11/11 15:57:06.766051 Error al recibir el mensaje
+[namenode] 2025/11/11 15:57:49.998397 Nueva conexion entrante desde:[::1]:34030
+[namenode] 2025/11/11 15:58:08.057977 Error al recibir el mensaje
+[namenode] 2025/11/11 21:07:19.001969 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/11 21:08:01.385104 Nueva conexion entrante desde:[::1]:56088
+[namenode] 2025/11/11 21:08:19.487375 Error al recibir el mensaje
+[namenode] 2025/11/11 21:12:13.937962 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/11 21:12:16.912489 Nueva conexion entrante desde:[::1]:50808
+[namenode] 2025/11/11 21:12:36.941867 HANDLER: La conexion con el nodo finalizo
+[namenode] 2025/11/11 21:47:21.299472 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/11 22:34:24.845619 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/11 22:42:06.069756 Nueva conexion entrante desde:[::1]:44548
+[namenode] 2025/11/11 22:42:18.155582 Nueva conexion entrante desde:[::1]:38730
+[namenode] 2025/11/11 22:44:12.017473 Nueva conexion entrante desde:[::1]:51838
+[namenode] 2025/11/11 22:44:29.258856 Nueva conexion entrante desde:[::1]:38896
+[namenode] 2025/11/11 22:49:51.114438 Nueva conexion entrante desde:[::1]:59812
+[namenode] 2025/11/11 22:53:30.865438 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/11 22:53:37.367782 Nueva conexion entrante desde:[::1]:56104

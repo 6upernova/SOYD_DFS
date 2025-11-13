@@ -81,15 +81,19 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 	defer conn.Close()
 	conn.SetReadDeadline(time.Now().Add(20*time.Second))
 	server.MsgLog("Nueva conexion entrante desde:"+conn.RemoteAddr().String())
-
-	message, err := transport.RecieveMessage(conn)
 	
+	mensaje, err := server.RecieveMessage(conn)
 	if err != nil{
-		server.MsgLog("Error al recibir el mensaje")
+		server.MsgLog("Error al recibir el mensaje desde")
 	}
-
-	fmt.Println("El mensaje recibido es el siguiente: ")
-	fmt.Println(message)
+	msg_enviado :=transport.Message{
+		Cmd:"INFO_RECEIVED",
+		Params:map[string]string{},
+		Data:nil,
+	}
+	
+	fmt.Println(mensaje)
+	transport.SendMessage(conn,msg_enviado)	
 
 }
 
