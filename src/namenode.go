@@ -33,7 +33,7 @@ var data_nodes [CANT_DATANODES]string
 var server *transport.Server
 
 func init() {
-
+ 
 	init_data_nodes_addrs()
 	nn := create_name_node("./blocks/Metadata.json")
 	server = transport.NewServer("namenode") //Manejado por la Api transport
@@ -92,7 +92,10 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 	switch mensaje.Cmd {
 		case "INFO":	nn.info(mensaje.Params["filename"], &answer_msg)
 		case "LS": nn.ls(&answer_msg)
-		
+		case "PUT": {
+			cant_blocks,_ := strconv.Atoi(mensaje.Params["cant_blocks"])
+			nn.put(cant_blocks,&answer_msg)
+		}
 	}
 	
 	fmt.Println(mensaje)
@@ -101,7 +104,47 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 		server.MsgLog("ERROR: al enviar el mensaje de respuesta hacia: "+ conn.RemoteAddr().String())
 		return
 	}
-	server.MsgLog("Mesaje enviado con exito")
+	server.MsgLog("Mensaje enviado con exito")
+	
+	// Solucion temporal TODO: hacerlo mas elegante
+	switch mensaje.Cmd {
+		case "PUT": {
+			confirm_msg,_ := server.RecieveMessage(conn)
+			if err != nil{
+				server.MsgLog("ERROR: al recibir el mensaje desde: "+ conn.RemoteAddr().String())
+				return
+			}		
+			nn.confirm_put(confirm_msg)
+		}
+	}
+}
+
+func (nn *NameNode) put(cant_blocks int, answer_msg *transport.Message){
+	// implementar funcion que balancee equitativamente segun la cantidad de bloques
+	// nodes := balance_charge(cant_blocks)
+	var metadata []transport.Label
+	for i := 0;i<cant_blocks;i++{
+		metadata = append(metadata, transport.Label{Block:"b"+strconv.Itoa(i), Node_address:data_nodes[i%cant_blocks]})	
+	}
+
+	*answer_msg = transport.Message{
+		Cmd:"PUT_ANSWER",
+		Params:nil,
+		Metadata:metadata,
+		Data:nil,
+	}
+}
+
+func (nn *NameNode) confirm_put(confirm_msg transport.Message ){
+
+	if confirm_msg.Cmd != "PUT_CONFIRMED"{
+		server.MsgLog("ERROR: No se ha podido confirmar el put del archivo")
+		return
+	}
+
+	nn.add_metadata(confirm_msg.Params["filename"], confirm_msg.Metadata)
+	nn.save_metadata()
+	server.MsgLog("El PUT fue exitoso y se actualizo el indice")
 }
 
 func (nn *NameNode) info(archive_name string, answer_msg *transport.Message){
@@ -148,31 +191,6 @@ func (nn *NameNode) ls(answer_msg *transport.Message){
 }
 	
 
-// Handle get request by client
-// Le envia un mensaje al cliente con la informacion de los datanodes donde se encuentra el archivo
-// Se queda esperando la confirmacion del cliente de que leyo exitosamente el archivo 
-func (nn *NameNode ) get(archive_name string) []transport.Label{
-	
-	
-	server.MsgLog("Peticion: archivo "+archive_name)
-	
-	nn.mu.RLock()
-	data_nodes := nn.metadata[archive_name]
-	nn.mu.RUnlock()
-	
-	if data_nodes == nil{
-		println("Error archivo no existe en el sistema\n")
-		server.MsgLog("Peticion: denegada archivo no existe")
-	}
-	
-	
-
-	return nil
-
-}
-
-
-
 
 
 
@@ -210,6 +228,12 @@ func (nn *NameNode) load_metadata() error{
 	return nil
 }
 
+func (nn *NameNode) add_metadata(archive_name string, nodes []transport.Label){
+	nn.mu.Lock()
+	nn.metadata[archive_name] = nodes
+	nn.mu.Unlock()
+}
+
 func (nn *NameNode) save_metadata() error{
 	nn.mu.RLock()
 	data, err0 := json.MarshalIndent(nn.metadata,"", " ")		
@@ -218,7 +242,7 @@ func (nn *NameNode) save_metadata() error{
 		return err0
 	}
 
-	tmpPath := nn.path + ".tmp" //Evita la corrupcion de datos si se interrumpe el proceso
+	tmpPath := nn.path+".tmp" //Evita la corrupcion de datos si se interrumpe el proceso
 	err1 := os.WriteFile(tmpPath, data, 0644)
 	if err1 != nil {
 		return err1

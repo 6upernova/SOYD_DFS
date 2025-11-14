@@ -4,36 +4,58 @@ import (
 	"fmt"
 	"github.com/6upernova/SOYD_DFS/src/transport"
  	"net"
+	"strconv"
 	//"bufio"
 	//"log"
 	//"io"
+	"os"
 )
 
+const BlockSize = 1024
 var namenode_addr string
 var server *transport.Server
 
 
 
 func main(){
-	
+
 	namenode_addr = "localhost:9000"	
 	server = transport.NewServer("Client")
 	var command string
-	fmt.Println("Ingrese el comando que desea ejecutar:%s")
-	fmt.Scanln(&command)
-	switch command{
 
-		case "info":{
-			fmt.Println("Ingrese el nombre del archivo del cual quiere saber la info")
-			var archive_name string
-			fmt.Scanln(&archive_name)
-			info(archive_name)
+	for{
+		fmt.Println("Ingrese el comando que desea ejecutar:%s")
+		fmt.Scanln(&command)
+		switch command{
+
+			case "info":{
+				fmt.Println("Ingrese el nombre del archivo del cual quiere saber la info")
+				var archive_name string
+				fmt.Scanln(&archive_name)
+				info(archive_name)
+			}
+			case "ls":ls()
+			case "q":return
+			case "get":{
+				fmt.Println("Ingrese el nombre del archivo que desea obtener")
+				var archive_name string
+				fmt.Scanln(&archive_name)
+				get(archive_name)
+
+			}
+			case "put":{
+				fmt.Println("Ingrese la ruta del archivo que desea colocar en el sistema")
+				var archive_path string
+				fmt.Scanln(&archive_path)
+				put(archive_path)
+
+			} 
 		}
-		case "ls":ls()
 	}
 }
 
-func info(archive_name string){
+func info(archive_name string) []transport.Label{
+	server.MsgLog("Eviando solicitud de info sobre el archivo: "+archive_name)
 	msg := transport.Message{
 		Cmd:"INFO",
 		Params:map[string]string{
@@ -43,14 +65,109 @@ func info(archive_name string){
 		Data:nil,
 	}
 
-	res_msg := send_tcp_message(msg)
+	res_msg := send_tcp_message(namenode_addr, msg)
 	
 	fmt.Println(res_msg.Metadata)
+
+	return res_msg.Metadata
 }
 
-func send_tcp_message(msg transport.Message) transport.Message{
+func put(archive_path string){
 
-	conn, err := net.Dial("tcp", namenode_addr)
+	data, err := os.ReadFile(archive_path)
+	if err != nil{
+		server.MsgLog("Error al intentar leer el archivo local")
+		return
+	}
+
+	var blocks [][]byte
+	for i := 0; i < len(data); i += BlockSize {
+    end := i + BlockSize
+    if end > len(data) { end = len(data) }
+    blocks = append(blocks, data[i:end])
+	}
+
+	
+	msg:= transport.Message{
+		Cmd: "PUT",
+		Params: map[string]string{
+			"cant_blocks":strconv.Itoa(len(blocks)),
+		},
+		Metadata:nil,
+		Data:nil,
+	}	
+
+	_ =send_tcp_message(namenode_addr, msg)
+	
+
+	// Aca el cliente establece conexion con cada uno de los datanodes que
+	// Le respondio el namenode en rec_msg.Metadata
+	// Y al completar el guardado de los bloques en cada uno de los datanodes
+	// Le envia un mensaje confirmando que los bloques fueron insertados exitosamente para que pueda actualizar el metadata.json
+	// En este caso voy a responder con un mensaje vacio para que salte error de put no confirmado
+	confirm_msg := transport.Message{}
+	_ : send_tcp_message(namenode_addr,confirm_msg)
+}
+
+func get(archive_name string){
+	
+	metadata := info(archive_name)
+	var data []byte
+	for _,l := range metadata{
+		msg := transport.Message{
+			Cmd:"GET_BLOCK",
+			Params:map[string]string{
+				"filename":archive_name,
+				"block":l.Block,
+			},
+			Metadata:nil,
+			Data:nil,
+		}
+		// La clase datanode aun no esta implementada 
+		rec_msg := send_tcp_message (l.Node_address,msg)
+		data = append(data, rec_msg.Data...)
+	}
+	
+	save_file(data, archive_name)
+	
+}
+
+func save_file(data []byte, archive_name string) error{
+
+	path := "./local_files/"+archive_name
+	tmp_path := path+".tmp" 
+	err := os.WriteFile(tmp_path, data, 0644)
+
+	if err != nil{
+		server.MsgLog("Error al intentar guardar el archivo: "+archive_name)
+		return err
+	}
+
+	os.Rename(tmp_path, path)
+	
+	server.MsgLog("Archivo: "+archive_name+" guardado en el local con exito")
+	return nil
+
+}
+
+func ls(){
+
+	msg := transport.Message{
+		Cmd:"LS",
+		Params:nil,
+		Metadata:nil,
+		Data:nil,
+	}
+
+	
+	res_msg := send_tcp_message(namenode_addr, msg)
+
+	fmt.Println(res_msg.Params["files"])
+}
+
+func send_tcp_message(node_address string,msg transport.Message) transport.Message{
+
+	conn, err := net.Dial("tcp", node_address)
 	if err != nil{
 		server.MsgLog("Error al intentar establecer conexion con el namenode")
 	}
@@ -63,17 +180,3 @@ func send_tcp_message(msg transport.Message) transport.Message{
 }
 
 
-func ls(){
-
-	msg := transport.Message{
-		Cmd:"LS",
-		Params:nil,
-		Metadata:nil,
-		Data:nil,
-	}
-
-	
-	res_msg := send_tcp_message(msg)
-
-	fmt.Println(res_msg.Params["files"])
-}

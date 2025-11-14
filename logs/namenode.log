@@ -90,3 +90,16 @@
 [namenode] 2025/11/14 05:19:27.211533 Nueva conexion entrante desde:[::1]:44448
 [namenode] 2025/11/14 05:19:27.211864 Peticion de info sobre: archivo2.txt
 [namenode] 2025/11/14 05:19:27.212110 Mesaje enviado con exito
+[namenode] 2025/11/14 16:04:17.107754 Cargando la metadata al sistema
+[namenode] 2025/11/14 16:04:17.138024 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 16:13:55.436011 Nueva conexion entrante desde:[::1]:47120
+[namenode] 2025/11/14 16:13:55.436689 Mensaje enviado con exito
+[namenode] 2025/11/14 16:13:55.437799 Nueva conexion entrante desde:[::1]:47126
+[namenode] 2025/11/14 16:13:55.438205 Mensaje enviado con exito
+[namenode] 2025/11/14 16:14:15.436125 ERROR: No se ha podido confirmar el put del archivo
+[namenode] 2025/11/14 16:15:12.019022 Nueva conexion entrante desde:[::1]:43970
+[namenode] 2025/11/14 16:15:12.019268 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 16:15:12.019534 Mensaje enviado con exito
+[namenode] 2025/11/14 16:15:30.019421 Nueva conexion entrante desde:[::1]:56522
+[namenode] 2025/11/14 16:15:30.019689 Peticion de los archivos del sistema
+[namenode] 2025/11/14 16:15:30.019963 Mensaje enviado con exito
