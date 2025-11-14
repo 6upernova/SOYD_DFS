@@ -103,3 +103,36 @@
 [namenode] 2025/11/14 16:15:30.019421 Nueva conexion entrante desde:[::1]:56522
 [namenode] 2025/11/14 16:15:30.019689 Peticion de los archivos del sistema
 [namenode] 2025/11/14 16:15:30.019963 Mensaje enviado con exito
+[namenode] 2025/11/14 16:18:03.033812 Cargando la metadata al sistema
+[namenode] 2025/11/14 16:18:03.039669 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 14:14:49.406998 Cargando la metadata al sistema
+[namenode] 2025/11/14 14:14:49.407425 Server Started on: 192.168.1.118:9000
+[namenode] 2025/11/14 14:15:16.236430 Nueva conexion entrante desde:[::1]:60546
+[namenode] 2025/11/14 14:15:16.236911 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 14:15:16.236975 El archivo: archivo1.txt no se encuentra en el sistema
+[namenode] 2025/11/14 14:15:16.237211 Mensaje enviado con exito
+[namenode] 2025/11/14 14:16:21.564008 Nueva conexion entrante desde:[::1]:34524
+[namenode] 2025/11/14 14:16:21.564306 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 14:16:21.564427 El archivo: archivo1.txt no se encuentra en el sistema
+[namenode] 2025/11/14 14:16:21.564706 Mensaje enviado con exito
+[namenode] 2025/11/14 14:19:13.382636 Cargando la metadata al sistema
+[namenode] 2025/11/14 14:19:13.383080 Server Started on: 192.168.1.118:9000
+[namenode] 2025/11/14 14:19:23.547080 Nueva conexion entrante desde:[::1]:59230
+[namenode] 2025/11/14 14:19:23.547246 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 14:19:23.547396 Mensaje enviado con exito
+[namenode] 2025/11/14 17:01:40.618671 Cargando la metadata al sistema
+[namenode] 2025/11/14 17:01:40.619166 Server Started on: 192.168.1.118:9000
+[namenode] 2025/11/14 17:02:01.072125 Nueva conexion entrante desde:[::1]:50414
+[namenode] 2025/11/14 17:02:01.072345 Peticion de los archivos del sistema
+[namenode] 2025/11/14 17:02:01.072495 Mensaje enviado con exito
+[namenode] 2025/11/14 17:02:18.779715 Nueva conexion entrante desde:[::1]:36590
+[namenode] 2025/11/14 17:02:18.779923 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 17:02:18.780110 Mensaje enviado con exito
+[namenode] 2025/11/14 17:06:58.315980 Nueva conexion entrante desde:[::1]:42000
+[namenode] 2025/11/14 17:06:58.316186 Mensaje enviado con exito
+[namenode] 2025/11/14 17:06:58.316779 Nueva conexion entrante desde:[::1]:42002
+[namenode] 2025/11/14 17:06:58.316912 Mensaje enviado con exito
+[namenode] 2025/11/14 17:07:18.316982 El PUT fue exitoso y se actualizo el indice
+[namenode] 2025/11/14 17:25:02.072857 Nueva conexion entrante desde:[::1]:44248
+[namenode] 2025/11/14 17:25:02.073015 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 17:25:02.073230 Mensaje enviado con exito

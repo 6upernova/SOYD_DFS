@@ -35,7 +35,7 @@ var server *transport.Server
 func init() {
  
 	init_data_nodes_addrs()
-	nn := create_name_node("./blocks/Metadata.json")
+	nn := create_name_node("./blocks/metadata.json")
 	server = transport.NewServer("namenode") //Manejado por la Api transport
 
 	nn.load_metadata()
@@ -136,12 +136,13 @@ func (nn *NameNode) put(cant_blocks int, answer_msg *transport.Message){
 }
 
 func (nn *NameNode) confirm_put(confirm_msg transport.Message ){
-
+	
+	/*
 	if confirm_msg.Cmd != "PUT_CONFIRMED"{
 		server.MsgLog("ERROR: No se ha podido confirmar el put del archivo")
 		return
 	}
-
+*/
 	nn.add_metadata(confirm_msg.Params["filename"], confirm_msg.Metadata)
 	nn.save_metadata()
 	server.MsgLog("El PUT fue exitoso y se actualizo el indice")
