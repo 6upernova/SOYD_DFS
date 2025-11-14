@@ -29,3 +29,64 @@
 [namenode] 2025/11/11 22:49:51.114438 Nueva conexion entrante desde:[::1]:59812
 [namenode] 2025/11/11 22:53:30.865438 Server Started on: 172.29.79.57:9000
 [namenode] 2025/11/11 22:53:37.367782 Nueva conexion entrante desde:[::1]:56104
+[namenode] 2025/11/14 02:58:16.309578 Cargando la metadata al sistema
+[namenode] 2025/11/14 02:58:16.323766 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 02:59:27.075015 Nueva conexion entrante desde:[::1]:45206
+[namenode] 2025/11/14 02:59:27.075480 Peticion de info sobre: archivo.txt
+[namenode] 2025/11/14 02:59:27.075692 El archivo: archivo.txt no se encuentra en el sistema
+[namenode] 2025/11/14 02:59:27.076041 Mesaje enviado con exito
+[namenode] 2025/11/14 03:01:13.326305 Cargando la metadata al sistema
+[namenode] 2025/11/14 03:01:13.331517 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 03:01:28.037646 Nueva conexion entrante desde:[::1]:45038
+[namenode] 2025/11/14 03:01:28.038108 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 03:01:28.038490 Mesaje enviado con exito
+[namenode] 2025/11/14 03:20:59.402713 Nueva conexion entrante desde:[::1]:42690
+[namenode] 2025/11/14 03:20:59.403176 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 03:20:59.403629 Mesaje enviado con exito
+[namenode] 2025/11/14 03:23:17.413153 Nueva conexion entrante desde:[::1]:41196
+[namenode] 2025/11/14 03:23:17.413654 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 03:23:17.414017 Mesaje enviado con exito
+[namenode] 2025/11/14 03:23:41.200156 Cargando la metadata al sistema
+[namenode] 2025/11/14 03:23:41.202499 ERROR: al hacer unmarshal de metadata persistente
+[namenode] 2025/11/14 03:23:41.206368 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 03:23:50.370732 Cargando la metadata al sistema
+[namenode] 2025/11/14 03:23:50.372926 ERROR: al hacer unmarshal de metadata persistente
+[namenode] 2025/11/14 03:23:50.376695 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 03:25:05.651715 Cargando la metadata al sistema
+[namenode] 2025/11/14 03:25:05.657290 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 03:25:59.848729 Cargando la metadata al sistema
+[namenode] 2025/11/14 03:25:59.853836 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 03:26:12.464590 Nueva conexion entrante desde:[::1]:54188
+[namenode] 2025/11/14 03:26:12.465157 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 03:26:12.465509 Mesaje enviado con exito
+[namenode] 2025/11/14 03:31:19.208394 Nueva conexion entrante desde:[::1]:54418
+[namenode] 2025/11/14 03:31:19.208656 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 03:31:19.208903 Mesaje enviado con exito
+[namenode] 2025/11/14 03:44:28.512522 Cargando la metadata al sistema
+[namenode] 2025/11/14 03:44:28.518764 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 03:45:14.757520 Nueva conexion entrante desde:[::1]:45354
+[namenode] 2025/11/14 03:45:14.758229 Peticion de info sobre: archivo1.txt
+[namenode] 2025/11/14 03:45:14.758760 Mesaje enviado con exito
+[namenode] 2025/11/14 05:02:47.406687 Cargando la metadata al sistema
+[namenode] 2025/11/14 05:02:47.423564 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 05:11:53.165335 Nueva conexion entrante desde:[::1]:42644
+[namenode] 2025/11/14 05:11:53.166060 Mesaje enviado con exito
+[namenode] 2025/11/14 05:16:07.707494 Cargando la metadata al sistema
+[namenode] 2025/11/14 05:16:07.716838 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 05:16:14.449817 Nueva conexion entrante desde:[::1]:50050
+[namenode] 2025/11/14 05:16:14.450467 Peticion de los archivos del sistema
+[namenode] 2025/11/14 05:16:14.451350 Mesaje enviado con exito
+[namenode] 2025/11/14 05:17:38.924197 Cargando la metadata al sistema
+[namenode] 2025/11/14 05:17:38.927057 ERROR: al hacer unmarshal de metadata persistente
+[namenode] 2025/11/14 05:17:38.931790 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 05:18:01.317732 Cargando la metadata al sistema
+[namenode] 2025/11/14 05:18:01.320580 ERROR: al hacer unmarshal de metadata persistente
+[namenode] 2025/11/14 05:18:01.324779 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 05:19:00.720926 Cargando la metadata al sistema
+[namenode] 2025/11/14 05:19:00.727876 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/14 05:19:13.883753 Nueva conexion entrante desde:[::1]:58120
+[namenode] 2025/11/14 05:19:13.884098 Peticion de los archivos del sistema
+[namenode] 2025/11/14 05:19:13.884552 Mesaje enviado con exito
+[namenode] 2025/11/14 05:19:27.211533 Nueva conexion entrante desde:[::1]:44448
+[namenode] 2025/11/14 05:19:27.211864 Peticion de info sobre: archivo2.txt
+[namenode] 2025/11/14 05:19:27.212110 Mesaje enviado con exito

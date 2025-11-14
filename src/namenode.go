@@ -1,6 +1,7 @@
 package main
 
 import (
+	"strings"
 	"time"
 	"github.com/6upernova/SOYD_DFS/src/transport"
  	"net"
@@ -14,11 +15,6 @@ import (
 	"strconv"
 )
 
-// Informacion sobre cada bloque 
-type Label struct{
-	Block        string `json:"block"`
-	Node_address string `json:"node"`
-} 
 // Representacion del namenode 
 type NameNode struct {
 	mu 			 sync.RWMutex
@@ -31,7 +27,7 @@ const(
 )
 
 
-type Metadata map[string][]Label // definicion de tipo para mayor comodidad
+type Metadata map[string][]transport.Label // definicion de tipo para mayor comodidad
 
 var data_nodes [CANT_DATANODES]string
 var server *transport.Server
@@ -41,6 +37,9 @@ func init() {
 	init_data_nodes_addrs()
 	nn := create_name_node("./blocks/Metadata.json")
 	server = transport.NewServer("namenode") //Manejado por la Api transport
+
+	nn.load_metadata()
+	fmt.Println(nn.metadata)
 	server.StartServer(":9000",nn)
 	// Se ejecuta automáticamente antes de main()
 
@@ -78,29 +77,81 @@ func get_local_ip() string {
 //TCP server Managment
 
 func (nn *NameNode) HandleConnection(conn net.Conn){
+
 	defer conn.Close()
 	conn.SetReadDeadline(time.Now().Add(20*time.Second))
-	server.MsgLog("Nueva conexion entrante desde:"+conn.RemoteAddr().String())
+	server.MsgLog("Nueva conexion entrante desde:"+ conn.RemoteAddr().String())
 	
 	mensaje, err := server.RecieveMessage(conn)
 	if err != nil{
-		server.MsgLog("Error al recibir el mensaje desde")
+		server.MsgLog("ERROR: al recibir el mensaje desde: "+ conn.RemoteAddr().String())
+		return
 	}
-	msg_enviado :=transport.Message{
-		Cmd:"INFO_RECEIVED",
-		Params:map[string]string{},
-		Data:nil,
+	var answer_msg transport.Message
+
+	switch mensaje.Cmd {
+		case "INFO":	nn.info(mensaje.Params["filename"], &answer_msg)
+		case "LS": nn.ls(&answer_msg)
+		
 	}
 	
 	fmt.Println(mensaje)
-	transport.SendMessage(conn,msg_enviado)	
+	err = transport.SendMessage(conn,answer_msg)	
+	if err != nil {
+		server.MsgLog("ERROR: al enviar el mensaje de respuesta hacia: "+ conn.RemoteAddr().String())
+		return
+	}
+	server.MsgLog("Mesaje enviado con exito")
+}
+
+func (nn *NameNode) info(archive_name string, answer_msg *transport.Message){
+
+	server.MsgLog("Peticion de info sobre: "+archive_name)
+	
+	nn.mu.RLock()
+	archive_metadata := nn.metadata[archive_name]
+	nn.mu.RUnlock()
+	if archive_metadata == nil{
+		server.MsgLog("El archivo: "+archive_name+" no se encuentra en el sistema")
+		return
+	} 
+
+	*answer_msg = transport.Message{
+		Cmd:"INFO_ANSWER",
+		Params:nil,
+		Metadata:archive_metadata,
+		Data:nil,
+	}
+
 
 }
+
+func (nn *NameNode) ls(answer_msg *transport.Message){
+	
+	server.MsgLog("Peticion de los archivos del sistema")
+
+	nn.mu.RLock()
+	var entries []string
+	for k,_ := range nn.metadata{
+		entries = append(entries, k) 
+	}
+	nn.mu.RUnlock()
+
+	*answer_msg = transport.Message{
+		Cmd:"LS_ANSWER",
+		Params:map[string]string{
+			"files":strings.Join(entries,"\n"),
+		},
+		Metadata:nil,
+		Data:nil,
+		}
+}
+	
 
 // Handle get request by client
 // Le envia un mensaje al cliente con la informacion de los datanodes donde se encuentra el archivo
 // Se queda esperando la confirmacion del cliente de que leyo exitosamente el archivo 
-func (nn *NameNode ) get(archive_name string) []Label{
+func (nn *NameNode ) get(archive_name string) []transport.Label{
 	
 	
 	server.MsgLog("Peticion: archivo "+archive_name)
@@ -112,7 +163,6 @@ func (nn *NameNode ) get(archive_name string) []Label{
 	if data_nodes == nil{
 		println("Error archivo no existe en el sistema\n")
 		server.MsgLog("Peticion: denegada archivo no existe")
-
 	}
 	
 	
@@ -135,6 +185,7 @@ func create_name_node(metadata_path string) *NameNode{
 }
 
 func (nn *NameNode) load_metadata() error{
+	server.MsgLog("Cargando la metadata al sistema")
 	nn.mu.Lock()
 	defer nn.mu.Unlock() //Se ejecuta al terminar la ejecucion del metodo
 
@@ -146,11 +197,13 @@ func (nn *NameNode) load_metadata() error{
 			return nil
 		}
 		return err0
+		server.MsgLog("EROR: al leer el archivo de metadata persistente")
 	}
 
 	var m Metadata
 	err1 := json.Unmarshal(data, &m) // La libreria encoding/json se encarga de dar el formato adecuado
 	if err1 != nil {
+		server.MsgLog("ERROR: al hacer unmarshal de metadata persistente")
 		return err1
 	}
 	nn.metadata = m

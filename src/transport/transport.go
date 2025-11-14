@@ -12,6 +12,12 @@ import (
 )
 // Estructura del servidor inspirada en https://dev.to/jones_charles_ad50858dbc0/build-a-blazing-fast-tcp-server-in-go-a-practical-guide-29d
 
+// Estructura de datos utilizada por el cliente y el namenode para almacenar el bloque y su localizacion
+type Label struct{
+	Block        string `json:"block"`
+	Node_address string `json:"node"`
+} 
+
 type Server struct{
 	Listener net.Listener		
 	Logger	 *log.Logger
@@ -21,6 +27,7 @@ type Server struct{
 type Message struct{
 	Cmd string 							 `json:"cmd"`
 	Params map[string]string `json:"params"`
+	Metadata []Label				 `json:"meta"`
 	Data	[]byte 						 `json:"data"` 
 }
 
@@ -106,7 +113,7 @@ func (s *Server) RecieveMessage(conn net.Conn) (Message, error) {
 //-----------------------------Private Functions-------------------------------------------------------
 
 func (s *Server) init_logger(who string){
-	f, err := os.OpenFile("./logs/namenode.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	f, err := os.OpenFile("./logs/"+who+".log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		panic(err)
 	}
