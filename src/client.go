@@ -5,6 +5,7 @@ import (
 	"github.com/6upernova/SOYD_DFS/src/transport"
  	"net"
 	"strconv"
+	"strings"
 	//"bufio"
 	//"log"
 	//"io"
@@ -65,7 +66,7 @@ func info(archive_name string) []transport.Label{
 		Data:nil,
 	}
 
-	res_msg := send_tcp_message(namenode_addr, msg)
+	res_msg := establish_and_send(namenode_addr, msg)
 	
 	fmt.Println(res_msg.Metadata)
 
@@ -80,6 +81,11 @@ func put(archive_path string){
 		return
 	}
 
+	temp_file_name := strings.Split(archive_path, "/")
+	file_name := temp_file_name[len(temp_file_name)-1]
+
+	fmt.Println(file_name)
+
 	var blocks [][]byte
 	for i := 0; i < len(data); i += BlockSize {
     end := i + BlockSize
@@ -89,7 +95,7 @@ func put(archive_path string){
 
 	
 	msg:= transport.Message{
-		Cmd: "PUT",
+		Cmd:"PUT",
 		Params: map[string]string{
 			"cant_blocks":strconv.Itoa(len(blocks)),
 		},
@@ -97,16 +103,23 @@ func put(archive_path string){
 		Data:nil,
 	}	
 
-	_ =send_tcp_message(namenode_addr, msg)
+	conn := establish_connection(namenode_addr)
+	res_msg :=send_tcp_message(conn, msg)
 	
-
 	// Aca el cliente establece conexion con cada uno de los datanodes que
 	// Le respondio el namenode en rec_msg.Metadata
 	// Y al completar el guardado de los bloques en cada uno de los datanodes
 	// Le envia un mensaje confirmando que los bloques fueron insertados exitosamente para que pueda actualizar el metadata.json
 	// En este caso voy a responder con un mensaje vacio para que salte error de put no confirmado
-	confirm_msg := transport.Message{}
-	_ : send_tcp_message(namenode_addr,confirm_msg)
+	confirm_msg := transport.Message{
+		Cmd:"PUT_CONFIRMED",
+		Params:map[string]string{
+			"filename":file_name,
+		},
+		Metadata:res_msg.Metadata,
+		Data:nil,
+	}
+	_ = send_tcp_message(conn,confirm_msg)
 }
 
 func get(archive_name string){
@@ -124,7 +137,7 @@ func get(archive_name string){
 			Data:nil,
 		}
 		// La clase datanode aun no esta implementada 
-		rec_msg := send_tcp_message (l.Node_address,msg)
+		rec_msg := establish_and_send (l.Node_address,msg)
 		data = append(data, rec_msg.Data...)
 	}
 	
@@ -160,23 +173,36 @@ func ls(){
 	}
 
 	
-	res_msg := send_tcp_message(namenode_addr, msg)
+	res_msg := establish_and_send(namenode_addr, msg)
 
 	fmt.Println(res_msg.Params["files"])
 }
 
-func send_tcp_message(node_address string,msg transport.Message) transport.Message{
-
-	conn, err := net.Dial("tcp", node_address)
-	if err != nil{
-		server.MsgLog("Error al intentar establecer conexion con el namenode")
-	}
-
-
-	err = transport.SendMessage(conn, msg)
-	res_msg, _ := server.RecieveMessage(conn)
-	server.MsgLog("Respuesta de: "+conn.RemoteAddr().String() +" recibida con exito")
+// Dividi las funciones en 3 en caso de querer enviar varios mensajes durante una sola conexion 
+func establish_and_send(node_address string, msg transport.Message) transport.Message{
+	conn := establish_connection(node_address)
+	res_msg := send_tcp_message(conn, msg)
 	return res_msg
 }
 
+func establish_connection(node_address string) net.Conn{
+	conn, err := net.Dial("tcp", node_address)
+		if err != nil{
+			server.MsgLog("Error al intentar establecer conexion con el namenode")
+		}
+		return conn
+}
+
+func send_tcp_message(conn net.Conn ,msg transport.Message) transport.Message{
+	err := transport.SendMessage(conn, msg)
+	if err != nil {
+		server.MsgLog("Error al enviar el mensaje: "+msg.Cmd+" hacia: "+ conn.RemoteAddr().String())
+	}
+	res_msg, _ := server.RecieveMessage(conn)
+	server.MsgLog("Respuesta de: "+conn.RemoteAddr().String() +" recibida con exito")
+	return res_msg
+
+}
+
+  
 

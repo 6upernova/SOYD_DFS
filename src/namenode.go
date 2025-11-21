@@ -1,6 +1,8 @@
 package main
 
 import (
+	//"container/heap"
+	"sort"
 	"strings"
 	"time"
 	"github.com/6upernova/SOYD_DFS/src/transport"
@@ -22,6 +24,13 @@ type NameNode struct {
 	path 		 string
 }
 
+
+
+type DataNode struct {
+	address					string `json:"ip"`
+	cant_blocks			int			`json:"cant_blocks"`
+}
+
 const(
 	CANT_DATANODES = 4
 )
@@ -29,13 +38,14 @@ const(
 
 type Metadata map[string][]transport.Label // definicion de tipo para mayor comodidad
 
-var data_nodes [CANT_DATANODES]string
+// Lo utilizamos para autenticacion basica de data nodes 
+var data_nodes []DataNode
+
 var server *transport.Server
 
 func init() {
  
-	init_data_nodes_addrs()
-	nn := create_name_node("./blocks/metadata.json")
+	nn := create_name_node("./data/metadata.json")
 	server = transport.NewServer("namenode") //Manejado por la Api transport
 
 	nn.load_metadata()
@@ -43,16 +53,10 @@ func init() {
 	server.StartServer(":9000",nn)
 	// Se ejecuta automáticamente antes de main()
 
-	}
-
-func init_data_nodes_addrs(){
-
-	local_ip := get_local_ip()
-
-	for i:=0; i< CANT_DATANODES; i++{
-		data_nodes[i] = local_ip+":"+"500"+ strconv.Itoa(i)
-	} 
 }
+
+
+	
 
 
 func main(){
@@ -79,6 +83,7 @@ func get_local_ip() string {
 func (nn *NameNode) HandleConnection(conn net.Conn){
 
 	defer conn.Close()
+
 	conn.SetReadDeadline(time.Now().Add(20*time.Second))
 	server.MsgLog("Nueva conexion entrante desde:"+ conn.RemoteAddr().String())
 	
@@ -87,9 +92,12 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 		server.MsgLog("ERROR: al recibir el mensaje desde: "+ conn.RemoteAddr().String())
 		return
 	}
+
+	//Mensaje de respuesta al cliente
 	var answer_msg transport.Message
 
 	switch mensaje.Cmd {
+		case "REGISTER": register_data_node(conn) 
 		case "INFO":	nn.info(mensaje.Params["filename"], &answer_msg)
 		case "LS": nn.ls(&answer_msg)
 		case "PUT": {
@@ -102,14 +110,15 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 	err = transport.SendMessage(conn,answer_msg)	
 	if err != nil {
 		server.MsgLog("ERROR: al enviar el mensaje de respuesta hacia: "+ conn.RemoteAddr().String())
+		
 		return
 	}
 	server.MsgLog("Mensaje enviado con exito")
 	
-	// Solucion temporal TODO: hacerlo mas elegante
+	// En caso de necesitar volver a enviar una respuesta
 	switch mensaje.Cmd {
 		case "PUT": {
-			confirm_msg,_ := server.RecieveMessage(conn)
+			confirm_msg,err := server.RecieveMessage(conn)
 			if err != nil{
 				server.MsgLog("ERROR: al recibir el mensaje desde: "+ conn.RemoteAddr().String())
 				return
@@ -120,13 +129,12 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 }
 
 func (nn *NameNode) put(cant_blocks int, answer_msg *transport.Message){
-	// implementar funcion que balancee equitativamente segun la cantidad de bloques
-	// nodes := balance_charge(cant_blocks)
+	// La funcion de balanceo de carga esta implementada de manera que se mantiene una lista actualizada en tiempo real de los nodos menos cargados
 	var metadata []transport.Label
-	for i := 0;i<cant_blocks;i++{
-		metadata = append(metadata, transport.Label{Block:"b"+strconv.Itoa(i), Node_address:data_nodes[i%cant_blocks]})	
+	best := data_nodes[:cant_blocks]
+	for i,v := range best{
+		metadata = append(metadata, transport.Label{Block:"b"+strconv.Itoa(i), Node_address:v.address})	
 	}
-
 	*answer_msg = transport.Message{
 		Cmd:"PUT_ANSWER",
 		Params:nil,
@@ -137,13 +145,15 @@ func (nn *NameNode) put(cant_blocks int, answer_msg *transport.Message){
 
 func (nn *NameNode) confirm_put(confirm_msg transport.Message ){
 	
-	/*
+	
 	if confirm_msg.Cmd != "PUT_CONFIRMED"{
 		server.MsgLog("ERROR: No se ha podido confirmar el put del archivo")
 		return
 	}
-*/
+
 	nn.add_metadata(confirm_msg.Params["filename"], confirm_msg.Metadata)
+	// Los datandes siempre estan almacenados de menor carga a mayor carga
+	balance_charge()
 	nn.save_metadata()
 	server.MsgLog("El PUT fue exitoso y se actualizo el indice")
 }
@@ -169,6 +179,15 @@ func (nn *NameNode) info(archive_name string, answer_msg *transport.Message){
 
 
 }
+
+func balance_charge() {
+
+	sort.Slice(data_nodes, func(i, j int) bool{
+		return data_nodes[i].cant_blocks < data_nodes[j].cant_blocks
+	} )
+	
+} 
+
 
 func (nn *NameNode) ls(answer_msg *transport.Message){
 	
@@ -226,14 +245,36 @@ func (nn *NameNode) load_metadata() error{
 		return err1
 	}
 	nn.metadata = m
+
+	dn_path := strings.Replace(nn.path, "metadata.json", "datanodes.json", 1)
+	
+	err :=	load_nodes_metadata(dn_path)
+	if (err != nil){
+		server.MsgLog("ERROR: Al intentar cargar la metadata de los datanodes")
+		return err
+	}
 	return nil
 }
+
+
 
 func (nn *NameNode) add_metadata(archive_name string, nodes []transport.Label){
 	nn.mu.Lock()
 	nn.metadata[archive_name] = nodes
+
+	nodesSet := make(map[string]struct{})
+	for _, lbl := range nodes {
+			nodesSet[lbl.Node_address] = struct{}{}
+	}
+
+	for _, dn := range data_nodes {
+			if _, exists := nodesSet[dn.address]; exists {
+				dn.cant_blocks++
+			}
+	}
 	nn.mu.Unlock()
 }
+
 
 func (nn *NameNode) save_metadata() error{
 	nn.mu.RLock()
@@ -251,7 +292,70 @@ func (nn *NameNode) save_metadata() error{
 
 	os.Rename(tmpPath, nn.path)
 	
+	dn_path := strings.Replace(nn.path, "metadata.json", "datanodes.json", 1)
+	err := save_nodes_metadata(dn_path )
+	if (err != nil){
+		server.MsgLog("ERROR: Al intentar guardar la metadata de los datanodes")
+		return err
+	}
 	return nil
 
 }
+
+//Data nodes persisten information Managment
+
+func load_nodes_metadata(path string) error{
+	data, err0 := os.ReadFile(path)
+	if err0 != nil{
+		// Lo inicializamos vacio si el archivo no existe
+		if os.IsNotExist(err0){
+			data_nodes = []DataNode{}
+			return nil
+		}
+		return err0
+		server.MsgLog("EROR: al leer el archivo de datanodes persistente")
+	}
+
+	var m []DataNode
+	err1 := json.Unmarshal(data, &m) // La libreria encoding/json se encarga de dar el formato adecuado
+	if err1 != nil {
+		server.MsgLog("ERROR: al hacer unmarshal de metadata persistente")
+		return err1
+	}
+	data_nodes=m
+	return nil
+}
+
+func register_data_node(conn net.Conn){
+
+	var nodesAddrSet []string
+	for _, n := range data_nodes {
+		nodesAddrSet = append(nodesAddrSet,n.address)
+	}
+	if !slices.Contains(nodesAddrSet, conn.RemoteAddr().String()){	
+		node:=DataNode{
+			address:conn.RemoteAddr().String(),
+			cant_blocks:0,
+		}	
+		data_nodes =append(data_nodes, node)
+	}					
+}
+
+func save_nodes_metadata(path string) error{
+	data, err0 := json.MarshalIndent(data_nodes,"", " ")		
+	if err0 != nil{
+		return err0
+	}
+
+	tmpPath := path+".tmp" //Evita la corrupcion de datos si se interrumpe el proceso
+	err1 := os.WriteFile(tmpPath, data, 0644)
+	if err1 != nil {
+		return err1
+	}
+
+	os.Rename(tmpPath,path) 
+	
+	return nil	
+}
+
 
