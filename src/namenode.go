@@ -2,6 +2,7 @@ package main
 
 import (
 	//"container/heap"
+	"slices"
 	"sort"
 	"strings"
 	"time"
@@ -27,8 +28,8 @@ type NameNode struct {
 
 
 type DataNode struct {
-	address					string `json:"ip"`
-	cant_blocks			int			`json:"cant_blocks"`
+	Address					string `json:"ip"`
+	Cant_blocks			int		 `json:"cant_blocks"`
 }
 
 const(
@@ -50,6 +51,7 @@ func init() {
 
 	nn.load_metadata()
 	fmt.Println(nn.metadata)
+	fmt.Println(data_nodes)
 	server.StartServer(":9000",nn)
 	// Se ejecuta automáticamente antes de main()
 
@@ -97,7 +99,7 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 	var answer_msg transport.Message
 
 	switch mensaje.Cmd {
-		case "REGISTER": register_data_node(conn) 
+		case "REGISTER": register_data_node(mensaje.Params["address"], &answer_msg) 
 		case "INFO":	nn.info(mensaje.Params["filename"], &answer_msg)
 		case "LS": nn.ls(&answer_msg)
 		case "PUT": {
@@ -113,7 +115,7 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 		
 		return
 	}
-	server.MsgLog("Mensaje enviado con exito")
+	server.MsgLog("SUCCESS: Mensaje enviado con exito")
 	
 	// En caso de necesitar volver a enviar una respuesta
 	switch mensaje.Cmd {
@@ -128,13 +130,38 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 	}
 }
 
+func register_data_node(node_address string, res_msg *transport.Message){
+
+	var nodesAddrSet []string
+	for _, n := range data_nodes {
+		nodesAddrSet = append(nodesAddrSet,n.Address)
+	}
+	if !slices.Contains(nodesAddrSet, node_address){	
+		node:=DataNode{
+			Address:node_address,
+			Cant_blocks:0,
+		}	
+		data_nodes =append(data_nodes, node)
+	}					
+	fmt.Println(data_nodes)
+
+	*res_msg = transport.Message{
+		Cmd:"REGISTER_OK",
+	}
+}
+
+
 func (nn *NameNode) put(cant_blocks int, answer_msg *transport.Message){
 	// La funcion de balanceo de carga esta implementada de manera que se mantiene una lista actualizada en tiempo real de los nodos menos cargados
 	var metadata []transport.Label
-	best := data_nodes[:cant_blocks]
-	for i,v := range best{
-		metadata = append(metadata, transport.Label{Block:"b"+strconv.Itoa(i), Node_address:v.address})	
+	for i := 0; i < cant_blocks; i++ {
+		dn := data_nodes[i%len(data_nodes)]
+		metadata = append(metadata, transport.Label{
+				Block:        "b" + strconv.Itoa(i),
+				Node_address: dn.Address,
+		})
 	}
+
 	*answer_msg = transport.Message{
 		Cmd:"PUT_ANSWER",
 		Params:nil,
@@ -155,7 +182,7 @@ func (nn *NameNode) confirm_put(confirm_msg transport.Message ){
 	// Los datandes siempre estan almacenados de menor carga a mayor carga
 	balance_charge()
 	nn.save_metadata()
-	server.MsgLog("El PUT fue exitoso y se actualizo el indice")
+	server.MsgLog("SUCCESS: El PUT fue exitoso y se actualizo el indice")
 }
 
 func (nn *NameNode) info(archive_name string, answer_msg *transport.Message){
@@ -166,7 +193,7 @@ func (nn *NameNode) info(archive_name string, answer_msg *transport.Message){
 	archive_metadata := nn.metadata[archive_name]
 	nn.mu.RUnlock()
 	if archive_metadata == nil{
-		server.MsgLog("El archivo: "+archive_name+" no se encuentra en el sistema")
+		server.MsgLog("ERROR: El archivo: "+archive_name+" no se encuentra en el sistema")
 		return
 	} 
 
@@ -183,9 +210,8 @@ func (nn *NameNode) info(archive_name string, answer_msg *transport.Message){
 func balance_charge() {
 
 	sort.Slice(data_nodes, func(i, j int) bool{
-		return data_nodes[i].cant_blocks < data_nodes[j].cant_blocks
+		return data_nodes[i].Cant_blocks < data_nodes[j].Cant_blocks
 	} )
-	
 } 
 
 
@@ -261,17 +287,19 @@ func (nn *NameNode) load_metadata() error{
 func (nn *NameNode) add_metadata(archive_name string, nodes []transport.Label){
 	nn.mu.Lock()
 	nn.metadata[archive_name] = nodes
+	// indexar data_nodes por address
+	index := make(map[string]int)
+	for i, dn := range data_nodes {
+		index[dn.Address] = i
+	}
 
-	nodesSet := make(map[string]struct{})
+	// ahora iterar sobre los nodos recién asignados (nodes)
 	for _, lbl := range nodes {
-			nodesSet[lbl.Node_address] = struct{}{}
+		if pos, ok := index[lbl.Node_address]; ok {
+				data_nodes[pos].Cant_blocks++
+		}
 	}
 
-	for _, dn := range data_nodes {
-			if _, exists := nodesSet[dn.address]; exists {
-				dn.cant_blocks++
-			}
-	}
 	nn.mu.Unlock()
 }
 
@@ -313,7 +341,7 @@ func load_nodes_metadata(path string) error{
 			return nil
 		}
 		return err0
-		server.MsgLog("EROR: al leer el archivo de datanodes persistente")
+		server.MsgLog("ERROR: al leer el archivo de datanodes persistente")
 	}
 
 	var m []DataNode
@@ -326,23 +354,10 @@ func load_nodes_metadata(path string) error{
 	return nil
 }
 
-func register_data_node(conn net.Conn){
-
-	var nodesAddrSet []string
-	for _, n := range data_nodes {
-		nodesAddrSet = append(nodesAddrSet,n.address)
-	}
-	if !slices.Contains(nodesAddrSet, conn.RemoteAddr().String()){	
-		node:=DataNode{
-			address:conn.RemoteAddr().String(),
-			cant_blocks:0,
-		}	
-		data_nodes =append(data_nodes, node)
-	}					
-}
-
 func save_nodes_metadata(path string) error{
-	data, err0 := json.MarshalIndent(data_nodes,"", " ")		
+	
+	data, err0 := json.MarshalIndent(data_nodes,"", " ")
+
 	if err0 != nil{
 		return err0
 	}

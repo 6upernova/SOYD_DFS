@@ -66,7 +66,7 @@ func info(archive_name string) []transport.Label{
 		Data:nil,
 	}
 
-	res_msg := establish_and_send(namenode_addr, msg)
+	res_msg,_ := establish_and_send(namenode_addr, msg)
 	
 	fmt.Println(res_msg.Metadata)
 
@@ -104,22 +104,50 @@ func put(archive_path string){
 	}	
 
 	conn := establish_connection(namenode_addr)
-	res_msg :=send_tcp_message(conn, msg)
+	res_msg,_ :=send_tcp_message(conn, msg)
 	
-	// Aca el cliente establece conexion con cada uno de los datanodes que
-	// Le respondio el namenode en rec_msg.Metadata
-	// Y al completar el guardado de los bloques en cada uno de los datanodes
-	// Le envia un mensaje confirmando que los bloques fueron insertados exitosamente para que pueda actualizar el metadata.json
-	// En este caso voy a responder con un mensaje vacio para que salte error de put no confirmado
+	server.MsgLog("Enviando los bloques a los datanodes")
+	
+	file_saved := true
+	for i,m := range res_msg.Metadata{
+		dn_msg := transport.Message{
+			Cmd:"PUT_BLOCK",
+			Params:map[string]string{
+				"filename":strings.Split(file_name,".")[0],
+				"block_id":m.Block,
+			},
+			Data:blocks[i],
+		}
+		dn_res_msg,err := establish_and_send(m.Node_address,dn_msg)
+
+		if err != nil{
+			server.MsgLog("ERROR: al intentar establecer conexion con uno de los datanodes y por ende almacenar el archivo")
+			file_saved = false
+			break
+		}
+		if dn_res_msg.Cmd != "PUT_BLOCK_OK"{
+			server.MsgLog("ERROR: Uno de los bloques no pudo ser almacenado correctamente")
+			file_saved = false
+			break
+		}
+		
+	}
+	var cmd string
+	if file_saved{
+		cmd = "PUT_CONFIRMED"
+		server.MsgLog("SUCCESS: El archivo fue almacenado correctamente en el DFS")
+	}else{
+		cmd = "PUT_ERR"
+	}
 	confirm_msg := transport.Message{
-		Cmd:"PUT_CONFIRMED",
+		Cmd:cmd,
 		Params:map[string]string{
 			"filename":file_name,
 		},
 		Metadata:res_msg.Metadata,
 		Data:nil,
 	}
-	_ = send_tcp_message(conn,confirm_msg)
+	_,_ = send_tcp_message(conn,confirm_msg)
 }
 
 func get(archive_name string){
@@ -130,14 +158,19 @@ func get(archive_name string){
 		msg := transport.Message{
 			Cmd:"GET_BLOCK",
 			Params:map[string]string{
-				"filename":archive_name,
-				"block":l.Block,
+				"filename":strings.Split(archive_name,".")[0],
+				"block_id":l.Block,
 			},
 			Metadata:nil,
 			Data:nil,
 		}
 		// La clase datanode aun no esta implementada 
-		rec_msg := establish_and_send (l.Node_address,msg)
+		
+		rec_msg,_:= establish_and_send (l.Node_address,msg)
+		if rec_msg.Cmd != "GET_BLOCK_OK"{
+			server.MsgLog("ERROR: no se pudo recomponer el archivo")
+			return
+		}
 		data = append(data, rec_msg.Data...)
 	}
 	
@@ -173,34 +206,35 @@ func ls(){
 	}
 
 	
-	res_msg := establish_and_send(namenode_addr, msg)
+	res_msg,_ := establish_and_send(namenode_addr, msg)
 
 	fmt.Println(res_msg.Params["files"])
 }
 
 // Dividi las funciones en 3 en caso de querer enviar varios mensajes durante una sola conexion 
-func establish_and_send(node_address string, msg transport.Message) transport.Message{
+func establish_and_send(node_address string, msg transport.Message) (transport.Message,error){
 	conn := establish_connection(node_address)
-	res_msg := send_tcp_message(conn, msg)
-	return res_msg
+	res_msg,err := send_tcp_message(conn, msg)
+	return res_msg,err
 }
 
 func establish_connection(node_address string) net.Conn{
 	conn, err := net.Dial("tcp", node_address)
 		if err != nil{
-			server.MsgLog("Error al intentar establecer conexion con el namenode")
+			server.MsgLog("Error al intentar establecer conexion con el nodo:"+ node_address)
+		return nil
 		}
 		return conn
 }
 
-func send_tcp_message(conn net.Conn ,msg transport.Message) transport.Message{
+func send_tcp_message(conn net.Conn ,msg transport.Message) (transport.Message,error){
 	err := transport.SendMessage(conn, msg)
 	if err != nil {
 		server.MsgLog("Error al enviar el mensaje: "+msg.Cmd+" hacia: "+ conn.RemoteAddr().String())
 	}
 	res_msg, _ := server.RecieveMessage(conn)
 	server.MsgLog("Respuesta de: "+conn.RemoteAddr().String() +" recibida con exito")
-	return res_msg
+	return res_msg,err
 
 }
 

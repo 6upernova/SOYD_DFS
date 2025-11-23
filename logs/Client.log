@@ -65,3 +65,96 @@
 [Client] 2025/11/20 20:11:51.903749 Respuesta de: [::1]:9000 recibida con exito
 [Client] 2025/11/20 20:11:51.904293 Error al enviar el mensaje: PUT_CONFIRMED hacia: [::1]:9000
 [Client] 2025/11/20 20:11:51.904452 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:03:05.143089 Error al intentar leer el archivo local
+[Client] 2025/11/22 21:03:19.153987 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:03:19.154163 Enviando los bloques a los datanodes
+[Client] 2025/11/22 21:03:19.157598 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 21:03:19.172871 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:04:13.769607 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:04:27.145819 Eviando solicitud de info sobre el archivo: archivo3.txt
+[Client] 2025/11/22 21:04:27.147331 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:05:35.120213 Error al intentar leer el archivo local
+[Client] 2025/11/22 21:05:49.188264 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:05:49.188438 Enviando los bloques a los datanodes
+[Client] 2025/11/22 21:05:49.192053 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 21:05:49.203100 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:15:46.159329 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:15:52.218087 Eviando solicitud de info sobre el archivo: archivo3.txt
+[Client] 2025/11/22 21:15:52.219633 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:16:09.116381 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:16:09.116535 Enviando los bloques a los datanodes
+[Client] 2025/11/22 21:16:09.116672 Error al intentar establecer conexion con el nodo:
+[Client] 2025/11/22 21:18:16.758514 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:18:16.758755 Enviando los bloques a los datanodes
+[Client] 2025/11/22 21:18:16.762389 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 21:18:16.762586 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/22 21:18:16.772189 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:18:48.329484 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:19:06.037365 Eviando solicitud de info sobre el archivo: archivo3.txt
+[Client] 2025/11/22 21:19:06.038702 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:28:36.983594 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:28:36.983816 Enviando los bloques a los datanodes
+[Client] 2025/11/22 21:28:36.987612 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 21:28:36.987767 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/22 21:28:36.996620 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:28:57.933623 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:31:21.483556 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:31:21.483797 Enviando los bloques a los datanodes
+[Client] 2025/11/22 21:31:21.487046 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 21:31:21.487204 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/22 21:31:21.497381 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:35:40.910242 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:35:40.910498 Enviando los bloques a los datanodes
+[Client] 2025/11/22 21:35:40.913984 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 21:35:40.914179 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/22 21:35:40.924174 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:40:43.091870 Error al intentar leer el archivo local
+[Client] 2025/11/22 21:41:37.360088 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:41:37.360360 Enviando los bloques a los datanodes
+[Client] 2025/11/22 21:41:37.363445 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 21:41:37.363787 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/22 21:41:37.373747 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:42:58.585404 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:48:06.552065 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:48:06.552233 Enviando los bloques a los datanodes
+[Client] 2025/11/22 21:48:06.552397 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/22 21:48:06.552653 Error al enviar el mensaje: PUT_CONFIRMED hacia: [::1]:9000
+[Client] 2025/11/22 21:48:06.552787 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:57:18.706422 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 21:57:18.706587 Enviando los bloques a los datanodes
+[Client] 2025/11/22 21:57:18.709968 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 21:57:18.713221 Respuesta de: 172.29.79.57:3002 recibida con exito
+[Client] 2025/11/22 21:57:18.718017 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 21:57:18.722473 Respuesta de: 172.29.79.57:3002 recibida con exito
+[Client] 2025/11/22 21:57:18.728613 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 21:57:18.728998 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/22 21:57:18.740533 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 22:34:34.347184 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/22 22:34:34.349470 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 22:46:42.599994 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 22:46:48.554755 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/22 22:46:48.556529 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 22:47:00.408776 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/22 22:47:00.410551 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 22:47:00.411509 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 22:47:00.412311 Respuesta de: 172.29.79.57:3002 recibida con exito
+[Client] 2025/11/22 22:47:00.413089 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 22:47:00.413867 Respuesta de: 172.29.79.57:3002 recibida con exito
+[Client] 2025/11/22 22:47:00.414621 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 22:47:00.419428 Archivo: archivo2.txt guardado en el local con exito
+[Client] 2025/11/22 22:54:09.830457 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/22 22:54:09.832559 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 22:54:09.832782 ERROR: no se pudo recomponer el archivo
+[Client] 2025/11/22 22:55:18.823175 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/22 22:55:18.825057 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 22:55:36.070137 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/22 22:55:36.071604 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 22:55:36.071786 ERROR: no se pudo recomponer el archivo
+[Client] 2025/11/22 22:58:16.705095 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/22 22:58:16.707252 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/22 22:58:16.708217 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 22:58:16.708967 Respuesta de: 172.29.79.57:3002 recibida con exito
+[Client] 2025/11/22 22:58:16.709637 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 22:58:16.710228 Respuesta de: 172.29.79.57:3002 recibida con exito
+[Client] 2025/11/22 22:58:16.710813 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/22 22:58:16.715263 Archivo: archivo2.txt guardado en el local con exito

@@ -1,0 +1,87 @@
+[datanode:3001] 2025/11/22 18:49:39.932306 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 18:51:51.329785 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 18:52:33.328882 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 18:53:47.360753 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 18:56:09.925554 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 18:56:29.788024 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 18:58:26.086616 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 19:02:13.531980 ERROR: al intentar establecer conexion con el namenode
+[datanode:3001] 2025/11/22 19:02:13.532519 ERROR: No fue posible registrar el datanode por que el namenode no esta disponible
+[datanode:3001] 2025/11/22 19:02:13.535997 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 19:25:50.174369 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 19:25:50.177843 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 19:27:13.281688 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 19:27:13.285283 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 19:27:26.034077 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 19:27:26.037176 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 20:14:38.822635 ERROR: al intentar establecer conexion con el namenode
+[datanode:3001] 2025/11/22 20:14:38.822871 ERROR: No fue posible registrar el datanode por que el namenode no esta disponible
+[datanode:3001] 2025/11/22 20:14:38.829501 Server Started on: 172.29.79.57localhost:3001
+[datanode:3001] 2025/11/22 20:15:19.385853 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 20:15:19.389941 Server Started on: 172.29.79.57localhost:3001
+[datanode:3001] 2025/11/22 20:40:19.485774 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 20:40:19.489383 Server Started on: 172.29.79.57localhost:3001
+[datanode:3001] 2025/11/22 20:41:37.070994 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 20:41:37.074058 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 21:03:19.154775 Nueva conexion entrante desde:172.29.79.57:36404
+[datanode:3001] 2025/11/22 21:03:19.157241 SUCCESS: bloque archivo3.txt_b0almacenado con exito
+[datanode:3001] 2025/11/22 21:03:19.157586 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 21:05:49.188826 Nueva conexion entrante desde:172.29.79.57:37318
+[datanode:3001] 2025/11/22 21:05:49.191632 SUCCESS: bloque archivo3.txt_b0almacenado con exito
+[datanode:3001] 2025/11/22 21:05:49.192000 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 21:14:22.170293 ERROR: al intentar establecer conexion con el namenode
+[datanode:3001] 2025/11/22 21:14:22.170513 ERROR: No fue posible registrar el datanode por que el namenode no esta disponible
+[datanode:3001] 2025/11/22 21:14:22.173908 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 21:14:46.255111 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 21:14:46.258420 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 21:17:50.414105 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 21:17:50.417217 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 21:18:16.759198 Nueva conexion entrante desde:172.29.79.57:53816
+[datanode:3001] 2025/11/22 21:18:16.761943 SUCCESS: bloque archivo3_b0almacenado con exito
+[datanode:3001] 2025/11/22 21:18:16.762315 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 21:28:20.185090 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 21:28:20.188246 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 21:28:36.984325 Nueva conexion entrante desde:172.29.79.57:53350
+[datanode:3001] 2025/11/22 21:28:36.987244 SUCCESS: bloque archivo3_b0almacenado con exito
+[datanode:3001] 2025/11/22 21:28:36.987565 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 21:30:59.529089 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 21:30:59.532407 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 21:31:21.484166 Nueva conexion entrante desde:172.29.79.57:41766
+[datanode:3001] 2025/11/22 21:31:21.486778 SUCCESS: bloque archivo3_b0almacenado con exito
+[datanode:3001] 2025/11/22 21:31:21.487012 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 21:35:05.039138 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 21:35:05.042257 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 21:35:40.910868 Nueva conexion entrante desde:172.29.79.57:38188
+[datanode:3001] 2025/11/22 21:35:40.913465 SUCCESS: bloque archivo3_b0almacenado con exito
+[datanode:3001] 2025/11/22 21:35:40.913907 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 21:40:26.099237 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 21:40:26.102449 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 21:41:37.360736 Nueva conexion entrante desde:172.29.79.57:44582
+[datanode:3001] 2025/11/22 21:41:37.363200 SUCCESS: bloque archivo3_b0almacenado con exito
+[datanode:3001] 2025/11/22 21:41:37.363426 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 21:57:18.707080 Nueva conexion entrante desde:172.29.79.57:43628
+[datanode:3001] 2025/11/22 21:57:18.709634 SUCCESS: bloque archivo2_b0almacenado con exito
+[datanode:3001] 2025/11/22 21:57:18.709945 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 21:57:18.713681 Nueva conexion entrante desde:172.29.79.57:43634
+[datanode:3001] 2025/11/22 21:57:18.717249 SUCCESS: bloque archivo2_b2almacenado con exito
+[datanode:3001] 2025/11/22 21:57:18.717979 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 21:57:18.722930 Nueva conexion entrante desde:172.29.79.57:43644
+[datanode:3001] 2025/11/22 21:57:18.728216 SUCCESS: bloque archivo2_b4almacenado con exito
+[datanode:3001] 2025/11/22 21:57:18.728548 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 22:45:57.128892 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3001] 2025/11/22 22:45:57.132820 Server Started on: 172.29.79.57:3001
+[datanode:3001] 2025/11/22 22:47:00.411099 Nueva conexion entrante desde:172.29.79.57:40648
+[datanode:3001] 2025/11/22 22:47:00.411288 ERROR: El bloque solicitado no se encuentra en este datanode
+[datanode:3001] 2025/11/22 22:47:00.411484 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 22:47:00.412628 Nueva conexion entrante desde:172.29.79.57:40664
+[datanode:3001] 2025/11/22 22:47:00.412848 ERROR: El bloque solicitado no se encuentra en este datanode
+[datanode:3001] 2025/11/22 22:47:00.413079 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 22:47:00.414259 Nueva conexion entrante desde:172.29.79.57:40676
+[datanode:3001] 2025/11/22 22:47:00.414439 ERROR: El bloque solicitado no se encuentra en este datanode
+[datanode:3001] 2025/11/22 22:47:00.414610 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 22:58:16.707815 Nueva conexion entrante desde:172.29.79.57:39730
+[datanode:3001] 2025/11/22 22:58:16.708194 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 22:58:16.709348 Nueva conexion entrante desde:172.29.79.57:39738
+[datanode:3001] 2025/11/22 22:58:16.709610 SUCCESS: Mensaje enviado con exito
+[datanode:3001] 2025/11/22 22:58:16.710539 Nueva conexion entrante desde:172.29.79.57:39750
+[datanode:3001] 2025/11/22 22:58:16.710795 SUCCESS: Mensaje enviado con exito
