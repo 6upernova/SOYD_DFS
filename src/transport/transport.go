@@ -9,13 +9,15 @@ import (
 	"log"
 	"io"
 	"encoding/binary"
+	"time"
 )
 // Estructura del servidor inspirada en https://dev.to/jones_charles_ad50858dbc0/build-a-blazing-fast-tcp-server-in-go-a-practical-guide-29d
 
 // Estructura de datos utilizada por el cliente y el namenode para almacenar el bloque y su localizacion
+// Utilizacion de una lista de direcciones para utilizar la replicacion
 type Label struct{
 	Block        string `json:"block"`
-	Node_address string `json:"node"`
+	Node_address []string `json:"node"`
 } 
 
 type Server struct{
@@ -108,6 +110,46 @@ func (s *Server) RecieveMessage(conn net.Conn) (Message, error) {
 
 	return msg, err
 }
+
+
+
+//-----------------------------Conexion remota---------------------------------------------------------
+func (s *Server)Establish_and_send(node_address string, msg Message) (Message, error) {
+
+    conn, err := s.Establish_connection(node_address)
+    if err != nil {
+        return Message{}, err
+    }
+    defer conn.Close()
+
+    res_msg, err := s.Send_tcp_message(conn, msg)
+    return res_msg, err
+}
+
+func (s *Server)Establish_connection(node_address string) (net.Conn, error) {
+    conn, err := net.Dial("tcp", node_address)
+    if err != nil {
+        return nil, err
+    }
+    return conn, nil
+}
+
+
+func (s *Server) Send_tcp_message(conn net.Conn, msg Message) (Message, error) {
+    if conn == nil {
+        return Message{}, fmt.Errorf("conexion NULL")
+    }
+		conn.SetReadDeadline(time.Now().Add(20*time.Second))
+
+    err := SendMessage(conn, msg)
+    if err != nil {
+        return Message{}, err
+    }
+
+    res_msg, err := s.RecieveMessage(conn)
+    return res_msg, err
+}
+
 
 
 //-----------------------------Private Functions-------------------------------------------------------

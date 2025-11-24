@@ -158,3 +158,27 @@
 [Client] 2025/11/22 22:58:16.710228 Respuesta de: 172.29.79.57:3002 recibida con exito
 [Client] 2025/11/22 22:58:16.710813 Respuesta de: 172.29.79.57:3001 recibida con exito
 [Client] 2025/11/22 22:58:16.715263 Archivo: archivo2.txt guardado en el local con exito
+[Client] 2025/11/24 15:59:15.140043 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/24 15:59:15.155094 Enviando los bloques a los datanodes
+[Client] 2025/11/24 15:59:15.159092 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/24 15:59:15.162419 Respuesta de: 172.29.79.57:3002 recibida con exito
+[Client] 2025/11/24 15:59:15.165678 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/24 15:59:15.169377 Respuesta de: 172.29.79.57:3002 recibida con exito
+[Client] 2025/11/24 15:59:15.173255 Respuesta de: 172.29.79.57:3001 recibida con exito
+[Client] 2025/11/24 15:59:15.173461 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/24 15:59:15.183810 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/24 15:59:39.344203 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/24 15:59:44.795021 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 15:59:44.796498 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/24 16:24:02.549947 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 16:24:02.551650 Respuesta de: [::1]:9000 recibida con exito
+[Client] 2025/11/24 16:24:02.552037 Error al intentar establecer conexion con el nodo:172.29.79.57:3001
+[Client] 2025/11/24 16:41:55.090578 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 16:42:17.627521 Eviando solicitud de info sobre el archivo: archivo2
+[Client] 2025/11/24 18:55:37.796063 Eviando solicitud de info sobre el archivo: archivo2,.txt
+[Client] 2025/11/24 18:55:48.805649 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 18:58:15.950064 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 19:17:03.878128 Error al intentar leer el archivo local
+[Client] 2025/11/24 19:17:20.535918 Enviando los bloques a los datanodes
+[Client] 2025/11/24 19:17:20.553960 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/24 19:18:09.129743 Eviando solicitud de info sobre el archivo: archivo2.txt

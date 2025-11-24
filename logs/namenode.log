@@ -416,3 +416,168 @@
 [namenode] 2025/11/22 22:58:16.706608 Nueva conexion entrante desde:[::1]:50782
 [namenode] 2025/11/22 22:58:16.706893 Peticion de info sobre: archivo2.txt
 [namenode] 2025/11/22 22:58:16.707200 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 15:43:17.552532 Cargando la metadata al sistema
+[namenode] 2025/11/24 15:43:17.562134 ERROR: al hacer unmarshal de metadata persistente
+[namenode] 2025/11/24 15:43:17.572661 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 15:45:09.255738 Cargando la metadata al sistema
+[namenode] 2025/11/24 15:45:09.259696 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 15:45:40.636607 Nueva conexion entrante desde:[::1]:53146
+[namenode] 2025/11/24 15:45:40.637304 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 15:49:12.047264 Nueva conexion entrante desde:[::1]:35686
+[namenode] 2025/11/24 15:49:12.047741 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 15:49:32.030286 Cargando la metadata al sistema
+[namenode] 2025/11/24 15:49:32.034088 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 15:49:45.129409 Nueva conexion entrante desde:[::1]:33364
+[namenode] 2025/11/24 15:49:45.129903 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 15:55:12.307904 Cargando la metadata al sistema
+[namenode] 2025/11/24 15:55:12.311885 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 15:56:16.447662 Nueva conexion entrante desde:[::1]:37590
+[namenode] 2025/11/24 15:56:16.448166 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 15:57:12.425252 Respuesta de: 172.29.79.57:3001 recibida con exito
+[namenode] 2025/11/24 15:58:11.224113 Nueva conexion entrante desde:[::1]:47534
+[namenode] 2025/11/24 15:58:11.240152 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 15:58:12.427467 Respuesta de: 172.29.79.57:3001 recibida con exito
+[namenode] 2025/11/24 15:58:12.428429 Respuesta de: 172.29.79.57:3002 recibida con exito
+[namenode] 2025/11/24 15:59:12.470824 Respuesta de: 172.29.79.57:3001 recibida con exito
+[namenode] 2025/11/24 15:59:12.471758 Respuesta de: 172.29.79.57:3002 recibida con exito
+[namenode] 2025/11/24 15:59:15.139558 Nueva conexion entrante desde:[::1]:57934
+[namenode] 2025/11/24 15:59:15.139973 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 15:59:15.183439 SUCCESS: El PUT fue exitoso y se actualizo el indice
+[namenode] 2025/11/24 15:59:39.343545 Nueva conexion entrante desde:[::1]:38278
+[namenode] 2025/11/24 15:59:39.343896 Peticion de los archivos del sistema
+[namenode] 2025/11/24 15:59:39.344167 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 15:59:44.795951 Nueva conexion entrante desde:[::1]:38282
+[namenode] 2025/11/24 15:59:44.796159 Peticion de info sobre: archivo2.txt
+[namenode] 2025/11/24 15:59:44.796428 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 16:00:12.479894 Respuesta de: 172.29.79.57:3002 recibida con exito
+[namenode] 2025/11/24 16:00:12.480604 Respuesta de: 172.29.79.57:3001 recibida con exito
+[namenode] 2025/11/24 16:00:12.481348 Respuesta de: 172.29.79.57:3001 recibida con exito
+[namenode] 2025/11/24 16:00:12.482073 Respuesta de: 172.29.79.57:3002 recibida con exito
+[namenode] 2025/11/24 16:00:12.482768 Respuesta de: 172.29.79.57:3001 recibida con exito
+[namenode] 2025/11/24 16:00:12.483333 Respuesta de: 172.29.79.57:3001 recibida con exito
+[namenode] 2025/11/24 16:00:12.483933 Respuesta de: 172.29.79.57:3002 recibida con exito
+[namenode] 2025/11/24 16:01:12.543506 Error al intentar establecer conexion con el nodo:172.29.79.57:3002
+[namenode] 2025/11/24 16:10:35.630154 Cargando la metadata al sistema
+[namenode] 2025/11/24 16:10:35.634490 Error al intentar establecer conexion con el nodo:172.29.79.57:3002
+[namenode] 2025/11/24 16:14:57.400990 Cargando la metadata al sistema
+[namenode] 2025/11/24 16:14:57.405046 Error al intentar establecer conexion con el nodo:172.29.79.57:3002
+[namenode] 2025/11/24 16:20:04.755163 Cargando la metadata al sistema
+[namenode] 2025/11/24 16:23:08.190676 Cargando la metadata al sistema
+[namenode] 2025/11/24 16:23:08.197672 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 16:24:02.550958 Nueva conexion entrante desde:[::1]:39016
+[namenode] 2025/11/24 16:24:02.551264 Peticion de info sobre: archivo2.txt
+[namenode] 2025/11/24 16:24:02.551573 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 16:33:29.879080 Cargando la metadata al sistema
+[namenode] 2025/11/24 16:33:29.885709 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 16:35:15.125058 Nueva conexion entrante desde:[::1]:39386
+[namenode] 2025/11/24 16:35:15.125614 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 16:35:25.580251 Nueva conexion entrante desde:[::1]:46710
+[namenode] 2025/11/24 16:35:25.580678 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 16:37:29.178839 Nueva conexion entrante desde:[::1]:44812
+[namenode] 2025/11/24 16:37:29.179296 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 16:47:38.253660 Cargando la metadata al sistema
+[namenode] 2025/11/24 16:47:38.262636 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 16:52:18.808492 Cargando la metadata al sistema
+[namenode] 2025/11/24 16:52:18.817140 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 16:54:39.244219 Cargando la metadata al sistema
+[namenode] 2025/11/24 16:54:39.253252 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 17:22:02.812211 Cargando la metadata al sistema
+[namenode] 2025/11/24 17:22:02.819544 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 17:22:33.130725 Cargando la metadata al sistema
+[namenode] 2025/11/24 17:22:33.137496 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 17:23:31.487207 Nueva conexion entrante desde:[::1]:46780
+[namenode] 2025/11/24 17:23:31.487731 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 17:28:06.916714 Cargando la metadata al sistema
+[namenode] 2025/11/24 17:28:06.924618 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 17:29:14.607698 Cargando la metadata al sistema
+[namenode] 2025/11/24 17:29:14.615823 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 17:29:40.943869 Nueva conexion entrante desde:[::1]:34612
+[namenode] 2025/11/24 17:29:40.944320 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 17:29:43.878226 Nueva conexion entrante desde:[::1]:34616
+[namenode] 2025/11/24 17:29:43.878659 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 17:47:55.408381 Cargando la metadata al sistema
+[namenode] 2025/11/24 17:47:55.416547 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 18:03:05.226359 Cargando la metadata al sistema
+[namenode] 2025/11/24 18:03:05.233203 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 18:04:14.875069 Nueva conexion entrante desde:[::1]:40164
+[namenode] 2025/11/24 18:04:14.875433 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:04:17.902143 Nueva conexion entrante desde:[::1]:49120
+[namenode] 2025/11/24 18:04:17.902491 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:04:19.557458 Nueva conexion entrante desde:[::1]:49128
+[namenode] 2025/11/24 18:04:19.557920 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:16:09.116229 Cargando la metadata al sistema
+[namenode] 2025/11/24 18:16:09.124527 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 18:16:19.741679 Nueva conexion entrante desde:[::1]:37738
+[namenode] 2025/11/24 18:16:19.742008 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:20:48.965380 Nueva conexion entrante desde:[::1]:42348
+[namenode] 2025/11/24 18:20:48.965736 Peticion de los archivos del sistema
+[namenode] 2025/11/24 18:27:19.496930 Cargando la metadata al sistema
+[namenode] 2025/11/24 18:27:19.505825 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 18:27:44.210645 Nueva conexion entrante desde:[::1]:56696
+[namenode] 2025/11/24 18:27:44.210947 Peticion de los archivos del sistema
+[namenode] 2025/11/24 18:27:44.211250 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:30:12.398972 Nueva conexion entrante desde:[::1]:59342
+[namenode] 2025/11/24 18:30:12.399348 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:30:46.732624 Nueva conexion entrante desde:[::1]:54560
+[namenode] 2025/11/24 18:30:46.732995 Peticion de los archivos del sistema
+[namenode] 2025/11/24 18:39:10.550842 Nueva conexion entrante desde:[::1]:60032
+[namenode] 2025/11/24 18:39:10.551180 Peticion de los archivos del sistema
+[namenode] 2025/11/24 18:43:08.720609 Cargando la metadata al sistema
+[namenode] 2025/11/24 18:43:08.729344 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 18:43:14.849126 Nueva conexion entrante desde:[::1]:55124
+[namenode] 2025/11/24 18:43:14.849593 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:45:52.456075 Nueva conexion entrante desde:[::1]:45924
+[namenode] 2025/11/24 18:45:52.456368 Peticion de los archivos del sistema
+[namenode] 2025/11/24 18:55:17.483212 Cargando la metadata al sistema
+[namenode] 2025/11/24 18:55:17.492376 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 18:55:22.851864 Nueva conexion entrante desde:[::1]:34882
+[namenode] 2025/11/24 18:55:22.852282 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:55:30.096490 Nueva conexion entrante desde:[::1]:48794
+[namenode] 2025/11/24 18:55:30.096770 Peticion de los archivos del sistema
+[namenode] 2025/11/24 18:55:30.096984 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:55:37.797458 Nueva conexion entrante desde:[::1]:35412
+[namenode] 2025/11/24 18:55:37.797738 Peticion de info sobre: archivo2,.txt
+[namenode] 2025/11/24 18:55:37.797945 ERROR: El archivo: archivo2,.txt no se encuentra en el sistema
+[namenode] 2025/11/24 18:55:37.798149 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:55:48.806641 Nueva conexion entrante desde:[::1]:35744
+[namenode] 2025/11/24 18:55:48.807010 Peticion de info sobre: archivo2.txt
+[namenode] 2025/11/24 18:55:48.807382 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:57:04.565040 Cargando la metadata al sistema
+[namenode] 2025/11/24 18:57:04.573967 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 18:57:08.827140 Nueva conexion entrante desde:[::1]:39844
+[namenode] 2025/11/24 18:57:08.827664 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:57:28.695718 Cargando la metadata al sistema
+[namenode] 2025/11/24 18:57:28.704414 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 18:57:37.707238 Nueva conexion entrante desde:[::1]:47852
+[namenode] 2025/11/24 18:57:37.707710 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:57:38.718834 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/24 18:57:38.733082 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/24 18:57:38.760691 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/24 18:57:38.774587 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/24 18:57:38.789226 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/24 18:58:07.917043 Nueva conexion entrante desde:[::1]:60720
+[namenode] 2025/11/24 18:58:07.917388 Peticion de los archivos del sistema
+[namenode] 2025/11/24 18:58:07.917659 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 18:58:15.951082 Nueva conexion entrante desde:[::1]:60734
+[namenode] 2025/11/24 18:58:15.951336 Peticion de info sobre: archivo2.txt
+[namenode] 2025/11/24 18:58:15.951565 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 19:13:34.711804 Cargando la metadata al sistema
+[namenode] 2025/11/24 19:13:34.722028 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 19:14:28.206807 Cargando la metadata al sistema
+[namenode] 2025/11/24 19:14:28.211222 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 19:16:26.259811 Cargando la metadata al sistema
+[namenode] 2025/11/24 19:16:26.268025 Server Started on: 172.29.79.57:9000
+[namenode] 2025/11/24 19:17:20.535437 Nueva conexion entrante desde:[::1]:50400
+[namenode] 2025/11/24 19:17:20.535883 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 19:17:20.564730 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/24 19:17:20.564903 SUCCESS: El PUT fue exitoso y se actualizo el indice
+[namenode] 2025/11/24 19:17:26.361590 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/24 19:17:26.376038 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/24 19:17:26.390807 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/24 19:17:26.405219 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/24 19:17:26.419947 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/24 19:18:09.130653 Nueva conexion entrante desde:[::1]:58276
+[namenode] 2025/11/24 19:18:09.130932 Peticion de info sobre: archivo2.txt
+[namenode] 2025/11/24 19:18:09.131178 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/24 19:18:45.310861 Nueva conexion entrante desde:[::1]:53810
+[namenode] 2025/11/24 19:18:45.311377 SUCCESS: Mensaje enviado con exito

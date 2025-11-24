@@ -45,7 +45,7 @@ func main(){
 
 func (dn *DataNode) register_data_node(){
 
-	conn := establish_connection(name_node_address)
+	conn,_ := server.Establish_connection(name_node_address)
 
 	if conn == nil{
 		server.MsgLog("ERROR: No fue posible registrar el datanode por que el namenode no esta disponible")
@@ -81,14 +81,7 @@ func get_local_ip() string {
 }
 
 
-func establish_connection(node_address string) net.Conn{
-	conn, err := net.Dial("tcp", node_address)
-	if err != nil{
-		server.MsgLog("ERROR: al intentar establecer conexion con el namenode")
-		return nil
-	}
-	return conn
-}
+
 
 func (dn *DataNode) HandleConnection(conn net.Conn){
 	defer conn.Close()
@@ -108,19 +101,46 @@ func (dn *DataNode) HandleConnection(conn net.Conn){
 	switch mensaje.Cmd {
 		case "PUT_BLOCK": dn.save_block(mensaje.Params["filename"],mensaje.Params["block_id"],mensaje.Data, &answer_msg)
 		case "GET_BLOCK":	dn.get_block(mensaje.Params["filename"],mensaje.Params["block_id"],&answer_msg)
+		case "PING":{
+			answer_msg = transport.Message{}
+			server.MsgLog("El Namenode hizo PING a este datanode")
+		}
+		case "REPLICATE": dn.replicate(mensaje.Params["filename"], mensaje.Params["block_id"], mensaje.Params["target"], &answer_msg)
+		
 	}
 	
 	fmt.Println(mensaje)
 	err = transport.SendMessage(conn,answer_msg)	
 	if err != nil {
 		server.MsgLog("ERROR: al enviar el mensaje de respuesta hacia: "+ conn.RemoteAddr().String())
-		
 		return
 	}
 	server.MsgLog("SUCCESS: Mensaje enviado con exito")
 
 }
 
+func (dn *DataNode) replicate(filename string, block_id string, target_addr string, answer_msg *transport.Message){
+	
+	var cmd string
+	msg_to_dest := transport.Message{
+		Cmd:"PUT_BLOCK",
+		Params:map[string]string{
+			"filename":filename,
+			"block_id":block_id,
+		},
+		Data:dn.Blocks[filename+"_"+block_id],
+	}
+
+	msg_to_dest_rec,_ := server.Establish_and_send(target_addr, msg_to_dest)
+	if msg_to_dest_rec.Cmd == "PUT_BLOCK_OK"{
+		cmd = "REPLICATE_OK"
+	}else{
+		cmd = "REPLICATE_ERR"
+	}
+	*answer_msg = transport.Message{
+		Cmd:cmd,
+	}
+}
 
 
 

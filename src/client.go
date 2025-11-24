@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/6upernova/SOYD_DFS/src/transport"
- 	"net"
+ 	//"net"
 	"strconv"
 	"strings"
 	//"bufio"
@@ -66,7 +66,7 @@ func info(archive_name string) []transport.Label{
 		Data:nil,
 	}
 
-	res_msg,_ := establish_and_send(namenode_addr, msg)
+	res_msg,_ := server.Establish_and_send(namenode_addr, msg)
 	
 	fmt.Println(res_msg.Metadata)
 
@@ -103,8 +103,8 @@ func put(archive_path string){
 		Data:nil,
 	}	
 
-	conn := establish_connection(namenode_addr)
-	res_msg,_ :=send_tcp_message(conn, msg)
+	conn,_ := server.Establish_connection(namenode_addr)
+	res_msg,_ :=server.Send_tcp_message(conn, msg)
 	
 	server.MsgLog("Enviando los bloques a los datanodes")
 	
@@ -118,7 +118,7 @@ func put(archive_path string){
 			},
 			Data:blocks[i],
 		}
-		dn_res_msg,err := establish_and_send(m.Node_address,dn_msg)
+		dn_res_msg,err := server.Establish_and_send(m.Node_address[0],dn_msg)
 
 		if err != nil{
 			server.MsgLog("ERROR: al intentar establecer conexion con uno de los datanodes y por ende almacenar el archivo")
@@ -147,35 +147,54 @@ func put(archive_path string){
 		Metadata:res_msg.Metadata,
 		Data:nil,
 	}
-	_,_ = send_tcp_message(conn,confirm_msg)
+	_,_ = server.Send_tcp_message(conn,confirm_msg)
 }
 
-func get(archive_name string){
-	
+func get(archive_name string) {
 	metadata := info(archive_name)
 	var data []byte
-	for _,l := range metadata{
-		msg := transport.Message{
-			Cmd:"GET_BLOCK",
-			Params:map[string]string{
-				"filename":strings.Split(archive_name,".")[0],
-				"block_id":l.Block,
-			},
-			Metadata:nil,
-			Data:nil,
+
+	baseName := strings.Split(archive_name, ".")[0]
+
+	for _, lbl := range metadata {
+		var blockData []byte
+		got := false
+
+		// probar todas las réplicas del bloque hasta lograr obtenerlo
+		for _, addr := range lbl.Node_address {
+
+			msg := transport.Message{
+					Cmd: "GET_BLOCK",
+					Params: map[string]string{
+							"filename": baseName,
+							"block_id": lbl.Block,
+					},
+			}
+
+			recMsg, err := server.Establish_and_send(addr, msg)
+			if err != nil {
+					server.MsgLog("ERROR: GET_BLOCK falló en " + addr + " para block " + lbl.Block)
+					continue
+			}
+
+			if recMsg.Cmd == "GET_BLOCK_OK" {
+					blockData = recMsg.Data
+					got = true
+					break
+			}
+
+			server.MsgLog("ERROR: " + addr + " respondió " + recMsg.Cmd + " para block " + lbl.Block)
 		}
-		// La clase datanode aun no esta implementada 
-		
-		rec_msg,_:= establish_and_send (l.Node_address,msg)
-		if rec_msg.Cmd != "GET_BLOCK_OK"{
-			server.MsgLog("ERROR: no se pudo recomponer el archivo")
+
+		if !got {
+			server.MsgLog("ERROR FATAL: ninguna réplica respondió para el bloque " + lbl.Block)
 			return
 		}
-		data = append(data, rec_msg.Data...)
+
+		data = append(data, blockData...)
 	}
-	
+
 	save_file(data, archive_name)
-	
 }
 
 func save_file(data []byte, archive_name string) error{
@@ -206,37 +225,12 @@ func ls(){
 	}
 
 	
-	res_msg,_ := establish_and_send(namenode_addr, msg)
+	res_msg,_ := server.Establish_and_send(namenode_addr, msg)
 
 	fmt.Println(res_msg.Params["files"])
 }
 
-// Dividi las funciones en 3 en caso de querer enviar varios mensajes durante una sola conexion 
-func establish_and_send(node_address string, msg transport.Message) (transport.Message,error){
-	conn := establish_connection(node_address)
-	res_msg,err := send_tcp_message(conn, msg)
-	return res_msg,err
-}
 
-func establish_connection(node_address string) net.Conn{
-	conn, err := net.Dial("tcp", node_address)
-		if err != nil{
-			server.MsgLog("Error al intentar establecer conexion con el nodo:"+ node_address)
-		return nil
-		}
-		return conn
-}
-
-func send_tcp_message(conn net.Conn ,msg transport.Message) (transport.Message,error){
-	err := transport.SendMessage(conn, msg)
-	if err != nil {
-		server.MsgLog("Error al enviar el mensaje: "+msg.Cmd+" hacia: "+ conn.RemoteAddr().String())
-	}
-	res_msg, _ := server.RecieveMessage(conn)
-	server.MsgLog("Respuesta de: "+conn.RemoteAddr().String() +" recibida con exito")
-	return res_msg,err
-
-}
 
   
 

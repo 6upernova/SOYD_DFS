@@ -33,51 +33,125 @@ type DataNode struct {
 }
 
 const(
+	REPLICATION_FACTOR = 2
 	CANT_DATANODES = 4
 )
 
 
 type Metadata map[string][]transport.Label // definicion de tipo para mayor comodidad
 
-// Lo utilizamos para autenticacion basica de data nodes 
+// Lo utilizamos para autenticacion basica de data nodes y balanceo de carga 
+
 var data_nodes []DataNode
+var data_nodes_up []DataNode
+var dns_mu sync.RWMutex
 
 var server *transport.Server
 
-func init() {
- 
+func main(){
 	nn := create_name_node("./data/metadata.json")
 	server = transport.NewServer("namenode") //Manejado por la Api transport
 
 	nn.load_metadata()
+	ping_data_nodes_before_start()
+	go nn.start_replication_service()
 	fmt.Println(nn.metadata)
 	fmt.Println(data_nodes)
 	server.StartServer(":9000",nn)
 	// Se ejecuta automáticamente antes de main()
 
+
+}
+
+// Este servicio se encarga de generar replicas para cada uno de los bloques almacenados en la metadata
+// Utiliza la lista de data_nodes_up para saber si los nodos que contienen las replicas siguen despiertos
+func (nn *NameNode) start_replication_service(){
+
+	for {
+		ping_alive_data_nodes()
+		//Solamente arranca el servicio de replicacion si hay mas de 2 DN conectados
+		if len(data_nodes_up) > 2{
+			nn.check_replication()
+		}
+		time.Sleep(10*time.Second)
+	}
+}
+
+func (nn *NameNode) check_replication(){
+	
+	for filename, labels := range nn.metadata{
+		nn.mu.RLock()
+		block_map := build_blocks_map(labels)
+		nn.mu.RUnlock()	
+		for blockID,replics_addr := range block_map{
+			if (len(replics_addr) < REPLICATION_FACTOR){
+				nn.replicate_block(filename,blockID,replics_addr)
+			}
+		//TODO: Manejar si un nodo esta caido y hacer una replica 
+		}
+
+	}
 }
 
 
+func (nn *NameNode) replicate_block(filename string, block_id string, replics_addr []string){
+	
+	if len(replics_addr) == 0{
+		return
+	}
+
+	origin := replics_addr[0]
+	dest := choose_destination(origin)
+
+	msg := transport.Message{
+		Cmd:"REPLICATE",
+		Params:map[string]string{
+			"filename": strings.Split(filename,".")[0],
+			"block_id":block_id,
+			"target": dest,
+		},
+	}
+
+
+	rec_msg, err := server.Establish_and_send(origin, msg)
+	if err != nil{
+		server.MsgLog("Error al intentar crear la replica del bloque: "+block_id)
+		return
+	}	
+
+	if rec_msg.Cmd == "REPLICATE_OK"{
+		nn.add_replica(filename,block_id,dest)
+		nn.save_metadata()
+	}
 	
 
-
-func main(){
-	fmt.Println(get_local_ip())
-	fmt.Println(data_nodes)
 }
 
-
-func get_local_ip() string {
-	conn, err := net.Dial("udp", "8.8.8.8:80")
-	if err != nil{
-		server.MsgLog("get_local_ip: error al establecer la conexion UDP")
+func choose_destination(origin_node string)(dest_addrr string){
+	
+	var return_addr string
+	//como estan balanceados siempre va a devolver al mejor nodo que no sea el de origen
+	for _,node := range data_nodes_up{
+		if node.Address != origin_node{
+			return_addr = node.Address
+			break
+		}
 	}
-	defer conn.Close()
 
-	local_address := conn.LocalAddr().(*net.UDPAddr)
 
-	return local_address.IP.String()
+	return return_addr
+
 }
+
+//Solucion temporal es mas eficiente tener una variable global y actualizarla cuando se modifique la metadata
+func build_blocks_map(labels []transport.Label) map[string][]string {
+    m := make(map[string][]string)
+    for _, lbl := range labels {
+        m[lbl.Block] = append(m[lbl.Block], lbl.Node_address...)
+    }
+    return m
+}
+
 
 
 //TCP server Managment
@@ -86,9 +160,9 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 
 	defer conn.Close()
 
-	conn.SetReadDeadline(time.Now().Add(20*time.Second))
+conn.SetReadDeadline(time.Now().Add(20*time.Second))
 	server.MsgLog("Nueva conexion entrante desde:"+ conn.RemoteAddr().String())
-	
+
 	mensaje, err := server.RecieveMessage(conn)
 	if err != nil{
 		server.MsgLog("ERROR: al recibir el mensaje desde: "+ conn.RemoteAddr().String())
@@ -133,21 +207,85 @@ func (nn *NameNode) HandleConnection(conn net.Conn){
 func register_data_node(node_address string, res_msg *transport.Message){
 
 	var nodesAddrSet []string
-	for _, n := range data_nodes {
+	node_pos := -1
+	for i, n := range data_nodes {
 		nodesAddrSet = append(nodesAddrSet,n.Address)
+		if n.Address == node_address{
+			node_pos = i
+		}
+	}
+	var nodesUpAddrSet []string
+	for _,n := range data_nodes_up {
+		nodesUpAddrSet = append(nodesUpAddrSet, n.Address)
 	}
 	if !slices.Contains(nodesAddrSet, node_address){	
 		node:=DataNode{
 			Address:node_address,
 			Cant_blocks:0,
 		}	
+		//Si no existe lo agregamos a ambas listas
 		data_nodes =append(data_nodes, node)
+		data_nodes_up = append(data_nodes_up, node)
+	}else if !slices.Contains(nodesUpAddrSet, node_address){
+		//Si existe lo recuperamos de la memoria persistente y lo colocamos en los que estan levantados
+		if node_pos != -1{
+			data_nodes_up = append(data_nodes_up,data_nodes[node_pos])
+		} 
 	}					
-	fmt.Println(data_nodes)
+
 
 	*res_msg = transport.Message{
 		Cmd:"REGISTER_OK",
 	}
+
+	balance_charge()
+	fmt.Println(data_nodes)
+	fmt.Println(data_nodes_up)
+}
+
+func PING(node_address string) bool{
+	if node_address == "" {
+		server.MsgLog("PING recibido con dirección vacía")
+		return false
+	}
+
+	msg := transport.Message{
+		Cmd: "PING",	}
+
+	_, err := server.Establish_and_send(node_address, msg)
+	if err != nil {
+		return false
+	}
+	return true
+}
+
+// Esta funcion checkea todos los nodos de la lista persistente de datanodos y actualiza la de TE para saber cuales estan disponibles 
+func ping_data_nodes_before_start(){
+	for _,node := range data_nodes{
+		if PING(node.Address){
+			data_nodes_up = append(data_nodes_up,node)
+		}
+	}
+	balance_charge()
+}
+
+func ping_alive_data_nodes(){
+	
+	dns_mu.Lock()
+	for i := 0; i < len(data_nodes_up); {
+		if !PING(data_nodes_up[i].Address) {
+			//Magia negra para borrar elementos de un slice
+			data_nodes_up = append(data_nodes_up[:i], data_nodes_up[i+1:]...)
+			continue  		
+		}
+		i++
+	}
+	dns_mu.Unlock()
+	balance_charge()
+
+	fmt.Println("CURRENTLY UP DATANODES: ")
+	fmt.Println(data_nodes_up)
+
 }
 
 
@@ -155,10 +293,10 @@ func (nn *NameNode) put(cant_blocks int, answer_msg *transport.Message){
 	// La funcion de balanceo de carga esta implementada de manera que se mantiene una lista actualizada en tiempo real de los nodos menos cargados
 	var metadata []transport.Label
 	for i := 0; i < cant_blocks; i++ {
-		dn := data_nodes[i%len(data_nodes)]
+		dn := data_nodes_up[i%len(data_nodes)]
 		metadata = append(metadata, transport.Label{
 				Block:        "b" + strconv.Itoa(i),
-				Node_address: dn.Address,
+				Node_address: []string{dn.Address, },
 		})
 	}
 
@@ -209,8 +347,14 @@ func (nn *NameNode) info(archive_name string, answer_msg *transport.Message){
 
 func balance_charge() {
 
+	dns_mu.Lock()
+	defer dns_mu.Unlock()
 	sort.Slice(data_nodes, func(i, j int) bool{
 		return data_nodes[i].Cant_blocks < data_nodes[j].Cant_blocks
+	} )
+
+	sort.Slice(data_nodes_up, func(i, j int) bool{
+		return data_nodes_up[i].Cant_blocks < data_nodes_up[j].Cant_blocks
 	} )
 } 
 
@@ -253,11 +397,15 @@ func (nn *NameNode) load_metadata() error{
 	nn.mu.Lock()
 	defer nn.mu.Unlock() //Se ejecuta al terminar la ejecucion del metodo
 
+
+	dn_path := strings.Replace(nn.path, "metadata.json", "datanodes.json", 1)
+
 	data, err0 := os.ReadFile(nn.path)
 	if err0 != nil{
 		// Lo inicializamos vacio si el archivo no existe
 		if os.IsNotExist(err0){
 			nn.metadata = make(Metadata)
+			load_nodes_metadata(dn_path)
 			return nil
 		}
 		return err0
@@ -272,7 +420,6 @@ func (nn *NameNode) load_metadata() error{
 	}
 	nn.metadata = m
 
-	dn_path := strings.Replace(nn.path, "metadata.json", "datanodes.json", 1)
 	
 	err :=	load_nodes_metadata(dn_path)
 	if (err != nil){
@@ -284,24 +431,72 @@ func (nn *NameNode) load_metadata() error{
 
 
 
-func (nn *NameNode) add_metadata(archive_name string, nodes []transport.Label){
+func (nn *NameNode) add_metadata(archive_name string, nodes []transport.Label) {
 	nn.mu.Lock()
+	defer nn.mu.Unlock()
+
 	nn.metadata[archive_name] = nodes
+
 	// indexar data_nodes por address
 	index := make(map[string]int)
 	for i, dn := range data_nodes {
-		index[dn.Address] = i
+			index[dn.Address] = i
 	}
 
-	// ahora iterar sobre los nodos recién asignados (nodes)
+	index2 := make(map[string]int)
+	for i, dn := range data_nodes_up{
+		index2[dn.Address] = i
+	}
+
+	// iterar todas las direcciones de cada label
 	for _, lbl := range nodes {
-		if pos, ok := index[lbl.Node_address]; ok {
-				data_nodes[pos].Cant_blocks++
+			for _, addr := range lbl.Node_address {
+					if pos, ok := index[addr]; ok {
+							data_nodes[pos].Cant_blocks++
+					}
+					if pos, ok := index2[addr]; ok{
+						data_nodes_up[pos].Cant_blocks++
+					}
+			}
+	}
+}
+
+func (nn *NameNode) add_replica(filename, blockID, nodeAddr string) {
+	nn.mu.Lock()
+
+	labels := nn.metadata[filename]
+	for _, dn := range data_nodes {
+		if dn.Address == nodeAddr{
+			dn.Cant_blocks++
 		}
 	}
 
+	for _, dn := range data_nodes_up{
+		if dn.Address == nodeAddr{
+			dn.Cant_blocks++
+		}
+	}
+
+	for i := range labels {
+			lbl := &labels[i]
+			if lbl.Block == blockID {
+
+					for _, addr := range lbl.Node_address {
+							if addr == nodeAddr {
+									return // ya existe
+							}
+					}
+
+					lbl.Node_address = append(lbl.Node_address, nodeAddr)
+
+					nn.metadata[filename] = labels
+					nn.mu.Unlock()
+					return
+			}
+	}
 	nn.mu.Unlock()
 }
+
 
 
 func (nn *NameNode) save_metadata() error{
@@ -326,6 +521,7 @@ func (nn *NameNode) save_metadata() error{
 		server.MsgLog("ERROR: Al intentar guardar la metadata de los datanodes")
 		return err
 	}
+	server.MsgLog("SUCCES: Se guardo exitosamente la metadata en metadata.json")
 	return nil
 
 }
