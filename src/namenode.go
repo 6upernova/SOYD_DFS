@@ -73,7 +73,7 @@ func (nn *NameNode) start_replication_service(){
 		if len(data_nodes_up) > 2{
 			nn.check_replication()
 		}
-		time.Sleep(10*time.Second)
+		time.Sleep(2*time.Minute)
 	}
 }
 
@@ -180,6 +180,7 @@ conn.SetReadDeadline(time.Now().Add(20*time.Second))
 			cant_blocks,_ := strconv.Atoi(mensaje.Params["cant_blocks"])
 			nn.put(cant_blocks,&answer_msg)
 		}
+		case "REMOVE": nn.rm(mensaje.Params["filename"],&answer_msg)
 	}
 	
 	fmt.Println(mensaje)
@@ -293,7 +294,7 @@ func (nn *NameNode) put(cant_blocks int, answer_msg *transport.Message){
 	// La funcion de balanceo de carga esta implementada de manera que se mantiene una lista actualizada en tiempo real de los nodos menos cargados
 	var metadata []transport.Label
 	for i := 0; i < cant_blocks; i++ {
-		dn := data_nodes_up[i%len(data_nodes)]
+		dn := data_nodes_up[i%len(data_nodes_up)]
 		metadata = append(metadata, transport.Label{
 				Block:        "b" + strconv.Itoa(i),
 				Node_address: []string{dn.Address, },
@@ -380,6 +381,20 @@ func (nn *NameNode) ls(answer_msg *transport.Message){
 		}
 }
 	
+func (nn *NameNode) rm(filename string, answer_msg *transport.Message){
+
+	nn.info(filename,answer_msg)
+	
+
+	metadata := answer_msg.Metadata
+	nn.remove_metadata(filename)
+	*answer_msg = transport.Message{
+		Cmd:"RM_ANSWER",
+		Metadata:metadata,
+	}
+
+	nn.save_metadata()
+}
 
 
 
@@ -459,6 +474,45 @@ func (nn *NameNode) add_metadata(archive_name string, nodes []transport.Label) {
 					}
 			}
 	}
+}
+func (nn *NameNode) remove_metadata(archive_name string) {
+	nn.mu.Lock()
+	defer nn.mu.Unlock()
+
+	nodes, exists := nn.metadata[archive_name]
+	if !exists {
+		return
+	}
+
+	index := make(map[string]int)
+	for i, dn := range data_nodes {
+		index[dn.Address] = i
+	}
+
+	index2 := make(map[string]int)
+	for i, dn := range data_nodes_up {
+		index2[dn.Address] = i
+	}
+
+	for _, lbl := range nodes {
+		for _, addr := range lbl.Node_address {
+
+			if pos, ok := index[addr]; ok {
+				if data_nodes[pos].Cant_blocks > 0 {
+					data_nodes[pos].Cant_blocks--
+				}
+			}
+
+			if pos, ok := index2[addr]; ok {
+				if data_nodes_up[pos].Cant_blocks > 0 {
+					data_nodes_up[pos].Cant_blocks--
+				}
+			}
+		}
+	}
+
+	delete(nn.metadata, archive_name)
+	server.MsgLog("Metadata Eliminada con exito")
 }
 
 func (nn *NameNode) add_replica(filename, blockID, nodeAddr string) {

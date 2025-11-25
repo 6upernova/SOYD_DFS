@@ -182,3 +182,236 @@
 [Client] 2025/11/24 19:17:20.535918 Enviando los bloques a los datanodes
 [Client] 2025/11/24 19:17:20.553960 SUCCESS: El archivo fue almacenado correctamente en el DFS
 [Client] 2025/11/24 19:18:09.129743 Eviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 22:43:54.516483 Enviando solicitud de info sobre el archivo: playa.txt
+[Client] 2025/11/24 22:48:53.128008 Enviando solicitud de info sobre el archivo: playa.txt
+[Client] 2025/11/24 22:49:30.206371 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 22:53:28.181413 Enviando solicitud de info sobre el archivo: q
+[Client] 2025/11/24 22:58:03.404131 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 23:18:05.725129 Enviando solicitud de info sobre el archivo: q
+[Client] 2025/11/24 23:21:21.726868 Enviando solicitud de info sobre el archivo: playa.txt
+[Client] 2025/11/24 23:21:21.733793 Archivo: playa.txt guardado en el local con éxito
+[Client] 2025/11/24 23:26:11.293909 Enviando solicitud de info sobre el archivo: q
+[Client] 2025/11/24 23:26:45.368131 Enviando solicitud de info sobre el archivo: q
+[Client] 2025/11/24 23:28:43.291439 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 23:36:34.230258 Enviando los bloques a los datanodes
+[Client] 2025/11/24 23:36:34.232045 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/24 23:37:47.048637 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 23:42:13.400293 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 23:45:25.054433 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/24 23:45:32.540032 Enviando solicitud de info sobre el archivo: playa.txt
+[Client] 2025/11/24 23:45:32.547168 Archivo: playa.txt guardado en el local con éxito
+[Client] 2025/11/25 00:56:00.531964 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/25 02:59:39.525973 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 02:59:39.526297 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 02:59:39.526593 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 02:59:39.526799 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 02:59:39.537590 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 02:59:39.538013 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 02:59:39.538276 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 02:59:39.538482 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 02:59:39.538690 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 02:59:39.538899 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 02:59:39.539070 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
+[Client] 2025/11/25 03:18:27.542199 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:18:29.543605 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:18:29.543916 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
+[Client] 2025/11/25 03:19:48.750882 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/25 03:20:09.022791 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:20:11.023798 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:20:11.024049 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
+[Client] 2025/11/25 03:21:48.535074 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:21:48.535352 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:21:48.535593 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:21:48.535796 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:21:48.538826 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:21:48.539111 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:21:48.539319 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:21:48.539564 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:21:48.539764 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:21:48.539882 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
+[Client] 2025/11/25 03:23:50.671108 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:23:50.671364 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:23:50.671604 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:23:50.671836 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:23:50.675123 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:23:50.675344 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:23:50.675585 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:23:50.675808 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:23:50.676069 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:23:50.676212 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
+[Client] 2025/11/25 03:32:39.335679 Enviando los bloques a los datanodes
+[Client] 2025/11/25 03:32:39.585487 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/25 03:32:55.027531 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.030122 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.032335 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.034400 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.036430 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.038739 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.041205 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.043442 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.045612 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.047549 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.049589 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.052180 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.054529 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.056736 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.058759 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.061015 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.063015 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.065401 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.067621 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.069880 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.071987 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.074204 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.076204 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.078630 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.080891 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.083066 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.085136 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.087065 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.089209 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.091730 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.094000 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.096044 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.098038 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.099967 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.101988 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.104481 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.106837 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.109025 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.111078 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.113107 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.115112 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.117510 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.119857 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.122145 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.124112 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.126078 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.128069 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.130591 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.133029 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.135146 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.137180 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.139149 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.141129 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.143653 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.145982 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.148368 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.150544 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.152547 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.154841 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.157187 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.159394 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.161466 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.163629 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.165695 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.168122 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.170457 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.172694 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:32:55.172812 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
+[Client] 2025/11/25 03:35:10.761481 Enviando los bloques a los datanodes
+[Client] 2025/11/25 03:35:10.777499 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/25 03:35:18.182444 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/25 03:37:36.492345 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/25 03:38:42.969976 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/25 03:39:14.632801 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:39:14.635347 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:39:14.638013 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:39:14.640241 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:39:14.642451 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:39:14.644694 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:39:14.646826 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:39:14.649232 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:39:14.651832 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:39:14.654051 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:39:14.654187 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
+[Client] 2025/11/25 03:44:51.468013 Enviando los bloques a los datanodes
+[Client] 2025/11/25 03:44:51.485393 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/25 03:45:01.085677 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:45:01.087843 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:45:01.090036 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:45:01.092144 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:45:01.094618 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 03:45:01.094779 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
+[Client] 2025/11/25 03:45:39.707712 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:45:41.709105 ERROR: al intentar establecer conexión con uno de los datanodes
+[Client] 2025/11/25 03:45:41.709381 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
+[Client] 2025/11/25 03:46:08.505530 Enviando los bloques a los datanodes
+[Client] 2025/11/25 03:46:08.508805 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/25 03:59:53.763658 Enviando los bloques a los datanodes
+[Client] 2025/11/25 03:59:53.971707 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/25 04:00:00.516800 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/25 04:00:12.123611 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.125970 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.128400 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.130675 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.133450 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.135916 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.138056 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.140103 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.142176 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.144365 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.146848 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.149359 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.151517 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.153438 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.155424 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.157827 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.160045 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.162249 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.164408 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.166486 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.168531 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.170654 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.173634 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.175972 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.178119 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.180289 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.182414 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.185043 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.187459 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.189626 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.191787 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.193825 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.195859 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.198529 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.201078 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.203270 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.205460 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.207502 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.209550 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.212473 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.214826 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.217090 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.219138 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.221278 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.223476 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.225983 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.228267 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.230494 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.232758 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.235192 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.237912 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.240253 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.242463 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.244536 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.246596 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.248724 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.251260 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.253572 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.255716 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.257851 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.259983 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.262021 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.264989 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.267333 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.269532 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.271638 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.273663 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 04:00:12.273801 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
+[Client] 2025/11/25 04:07:01.062810 Enviando los bloques a los datanodes
+[Client] 2025/11/25 04:07:01.079349 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/25 04:30:37.580812 Enviando solicitud de info sobre el archivo: playa.txt
+[Client] 2025/11/25 04:31:01.771410 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/25 04:31:24.718685 Enviando solicitud de info sobre el archivo: archivo2.txt
+[Client] 2025/11/25 04:32:37.490367 Enviando solicitud de info sobre el archivo: archivo

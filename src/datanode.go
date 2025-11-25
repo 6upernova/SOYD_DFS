@@ -22,7 +22,8 @@ type DataNode struct {
 	Blocks		map[string]([]byte) //Formato key : <filename>_<blockID>
 }
 
-var name_node_address string
+const name_node_address = "localhost:9000"
+
 var server *transport.Server
 
 
@@ -35,8 +36,7 @@ func main(){
 	} else{
 		port = os.Args[1]	
 	}
-	name_node_address = "localhost:9000"
-	dn := create_data_node(port)
+		dn := create_data_node(port)
 	server = transport.NewServer("datanode:"+port)	
 	dn.load_blocks()
 	dn.register_data_node()
@@ -106,6 +106,7 @@ func (dn *DataNode) HandleConnection(conn net.Conn){
 			server.MsgLog("El Namenode hizo PING a este datanode")
 		}
 		case "REPLICATE": dn.replicate(mensaje.Params["filename"], mensaje.Params["block_id"], mensaje.Params["target"], &answer_msg)
+		case "RM_BLOCK": dn.rm_block(mensaje.Params["filename"], mensaje.Params["block_id"], &answer_msg)
 		
 	}
 	
@@ -116,6 +117,23 @@ func (dn *DataNode) HandleConnection(conn net.Conn){
 		return
 	}
 	server.MsgLog("SUCCESS: Mensaje enviado con exito")
+
+}
+
+func (dn *DataNode) rm_block(filename string, block_id string, answer_msg *transport.Message){
+	delete(dn.Blocks,filename+"_"+block_id)
+	block_path := filepath.Join(dn.Path,filename+"_"+block_id+".blk")
+	err := os.Remove(block_path)
+	var cmd string
+	if err != nil{
+		cmd = "RM_BLOCK_OK"
+	}else{
+		cmd = "RM_BLOCK_ERR"
+	}
+
+	*answer_msg = transport.Message{
+		Cmd:cmd,
+	}
 
 }
 

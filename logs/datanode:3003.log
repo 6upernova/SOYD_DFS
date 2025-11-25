@@ -221,3 +221,390 @@
 [datanode:3003] 2025/11/24 19:18:56.514600 Nueva conexion entrante desde:172.29.79.57:47830
 [datanode:3003] 2025/11/24 19:18:56.514931 El Namenode hizo PING a este datanode
 [datanode:3003] 2025/11/24 19:18:56.515122 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:48:38.171990 Nueva conexion entrante desde:172.29.79.57:38190
+[datanode:3003] 2025/11/24 19:48:38.172201 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:48:38.172407 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:48:38.174209 Nueva conexion entrante desde:172.29.79.57:38206
+[datanode:3003] 2025/11/24 19:48:38.174379 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:48:38.174577 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:48:48.186017 Nueva conexion entrante desde:172.29.79.57:56828
+[datanode:3003] 2025/11/24 19:48:48.186405 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:48:48.186798 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:48:58.197902 Nueva conexion entrante desde:172.29.79.57:48450
+[datanode:3003] 2025/11/24 19:48:58.198310 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:48:58.198592 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:49:08.210181 Nueva conexion entrante desde:172.29.79.57:47232
+[datanode:3003] 2025/11/24 19:49:08.210609 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:49:08.210935 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:49:18.221960 Nueva conexion entrante desde:172.29.79.57:37694
+[datanode:3003] 2025/11/24 19:49:18.222362 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:49:18.222761 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:49:28.233735 Nueva conexion entrante desde:172.29.79.57:37730
+[datanode:3003] 2025/11/24 19:49:28.234085 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:49:28.234457 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:49:38.245548 Nueva conexion entrante desde:172.29.79.57:39280
+[datanode:3003] 2025/11/24 19:49:38.246097 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:49:38.246440 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:49:48.257505 Nueva conexion entrante desde:172.29.79.57:52272
+[datanode:3003] 2025/11/24 19:49:48.257809 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:49:48.258028 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:49:58.269111 Nueva conexion entrante desde:172.29.79.57:48912
+[datanode:3003] 2025/11/24 19:49:58.269435 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:49:58.269728 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:50:08.280692 Nueva conexion entrante desde:172.29.79.57:48532
+[datanode:3003] 2025/11/24 19:50:08.281044 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:50:08.281284 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:50:18.292304 Nueva conexion entrante desde:172.29.79.57:50240
+[datanode:3003] 2025/11/24 19:50:18.292611 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:50:18.292893 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:50:28.303936 Nueva conexion entrante desde:172.29.79.57:44470
+[datanode:3003] 2025/11/24 19:50:28.304247 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:50:28.304534 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 19:50:38.315635 Nueva conexion entrante desde:172.29.79.57:58526
+[datanode:3003] 2025/11/24 19:50:38.316032 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 19:50:38.316263 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:05:19.262568 Nueva conexion entrante desde:172.29.79.57:48576
+[datanode:3003] 2025/11/24 21:05:19.262773 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:05:19.262992 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:05:19.265190 Nueva conexion entrante desde:172.29.79.57:48592
+[datanode:3003] 2025/11/24 21:05:19.265388 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:05:19.265611 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:05:29.277982 Nueva conexion entrante desde:172.29.79.57:45320
+[datanode:3003] 2025/11/24 21:05:29.278523 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:05:29.278748 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:05:39.290003 Nueva conexion entrante desde:172.29.79.57:35104
+[datanode:3003] 2025/11/24 21:05:39.290404 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:05:39.290780 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:05:49.301880 Nueva conexion entrante desde:172.29.79.57:45328
+[datanode:3003] 2025/11/24 21:05:49.302251 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:05:49.302584 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:05:59.313624 Nueva conexion entrante desde:172.29.79.57:41174
+[datanode:3003] 2025/11/24 21:05:59.313901 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:05:59.314229 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:06:09.325485 Nueva conexion entrante desde:172.29.79.57:41786
+[datanode:3003] 2025/11/24 21:06:09.325818 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:06:09.326126 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:06:19.337383 Nueva conexion entrante desde:172.29.79.57:42906
+[datanode:3003] 2025/11/24 21:06:19.337658 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:06:19.337865 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:06:29.348723 Nueva conexion entrante desde:172.29.79.57:54000
+[datanode:3003] 2025/11/24 21:06:29.349220 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:06:29.349704 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:06:39.360607 Nueva conexion entrante desde:172.29.79.57:32950
+[datanode:3003] 2025/11/24 21:06:39.361033 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:06:39.361353 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:06:49.368039 Nueva conexion entrante desde:172.29.79.57:44740
+[datanode:3003] 2025/11/24 21:06:49.368394 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:06:49.368660 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:06:59.379645 Nueva conexion entrante desde:172.29.79.57:60694
+[datanode:3003] 2025/11/24 21:06:59.379984 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:06:59.380255 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:08:02.366028 Nueva conexion entrante desde:172.29.79.57:36766
+[datanode:3003] 2025/11/24 21:08:02.366222 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:08:02.366794 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:08:02.368759 Nueva conexion entrante desde:172.29.79.57:36768
+[datanode:3003] 2025/11/24 21:08:02.368922 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:08:02.369126 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:10:02.470227 Nueva conexion entrante desde:172.29.79.57:57132
+[datanode:3003] 2025/11/24 21:10:02.470596 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:10:02.470875 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:12:02.502911 Nueva conexion entrante desde:172.29.79.57:52688
+[datanode:3003] 2025/11/24 21:12:02.503343 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:12:02.503693 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:14:02.506055 Nueva conexion entrante desde:172.29.79.57:46664
+[datanode:3003] 2025/11/24 21:14:02.506428 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:14:02.506857 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:16:02.607978 Nueva conexion entrante desde:172.29.79.57:56216
+[datanode:3003] 2025/11/24 21:16:02.608311 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:16:02.608612 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:33:43.124745 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3003] 2025/11/24 21:33:43.127962 Server Started on: 172.29.79.57:3003
+[datanode:3003] 2025/11/24 21:34:55.438394 Nueva conexion entrante desde:172.29.64.1:61003
+[datanode:3003] 2025/11/24 21:34:55.438583 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:34:55.438790 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:36:55.445518 Nueva conexion entrante desde:172.29.64.1:61015
+[datanode:3003] 2025/11/24 21:36:55.445703 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:36:55.445914 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:38:55.448828 Nueva conexion entrante desde:172.29.64.1:61029
+[datanode:3003] 2025/11/24 21:38:55.449013 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:38:55.449222 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/24 21:40:55.454973 Nueva conexion entrante desde:172.29.64.1:61040
+[datanode:3003] 2025/11/24 21:40:55.455197 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/24 21:40:55.455422 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:38:17.939399 SUCCESS: El datanode fue registrado con exito en el namenode
+[datanode:3003] 2025/11/25 03:38:17.942678 Server Started on: 172.29.79.57:3003
+[datanode:3003] 2025/11/25 03:38:32.734253 Nueva conexion entrante desde:172.29.79.57:37044
+[datanode:3003] 2025/11/25 03:38:32.734572 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 03:38:32.734969 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:38:32.737131 Nueva conexion entrante desde:172.29.79.57:37056
+[datanode:3003] 2025/11/25 03:38:32.739999 SUCCESS: bloque archivo2_b1almacenado con exito
+[datanode:3003] 2025/11/25 03:38:32.740380 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:38:32.751309 Nueva conexion entrante desde:172.29.79.57:37058
+[datanode:3003] 2025/11/25 03:38:32.754149 SUCCESS: bloque archivo2_b2almacenado con exito
+[datanode:3003] 2025/11/25 03:38:32.754507 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:38:32.765908 Nueva conexion entrante desde:172.29.79.57:37074
+[datanode:3003] 2025/11/25 03:38:32.768689 SUCCESS: bloque archivo2_b3almacenado con exito
+[datanode:3003] 2025/11/25 03:38:32.769049 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:38:32.780014 Nueva conexion entrante desde:172.29.79.57:37084
+[datanode:3003] 2025/11/25 03:38:32.782732 SUCCESS: bloque archivo2_b4almacenado con exito
+[datanode:3003] 2025/11/25 03:38:32.783024 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:38:32.793912 Nueva conexion entrante desde:172.29.79.57:37090
+[datanode:3003] 2025/11/25 03:38:32.796491 SUCCESS: bloque archivo2_b0almacenado con exito
+[datanode:3003] 2025/11/25 03:38:32.796743 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:39:14.633168 Nueva conexion entrante desde:172.29.79.57:34582
+[datanode:3003] 2025/11/25 03:39:14.635245 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:39:14.638387 Nueva conexion entrante desde:172.29.79.57:34588
+[datanode:3003] 2025/11/25 03:39:14.640189 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:39:14.642803 Nueva conexion entrante desde:172.29.79.57:34602
+[datanode:3003] 2025/11/25 03:39:14.644632 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:39:14.647121 Nueva conexion entrante desde:172.29.79.57:34614
+[datanode:3003] 2025/11/25 03:39:14.649151 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:39:14.652114 Nueva conexion entrante desde:172.29.79.57:34626
+[datanode:3003] 2025/11/25 03:39:14.654006 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:40:35.265412 Nueva conexion entrante desde:172.29.79.57:57104
+[datanode:3003] 2025/11/25 03:40:35.265770 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 03:40:35.266080 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:42:37.823978 Nueva conexion entrante desde:172.29.79.57:53656
+[datanode:3003] 2025/11/25 03:42:37.824324 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 03:42:37.824573 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:44:39.647849 Nueva conexion entrante desde:172.29.79.57:42702
+[datanode:3003] 2025/11/25 03:44:39.648272 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 03:44:39.648567 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:44:51.468624 Nueva conexion entrante desde:172.29.79.57:59882
+[datanode:3003] 2025/11/25 03:44:51.471215 SUCCESS: bloque archivo2_b0almacenado con exito
+[datanode:3003] 2025/11/25 03:44:51.471506 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:44:51.479328 Nueva conexion entrante desde:172.29.79.57:59892
+[datanode:3003] 2025/11/25 03:44:51.482118 SUCCESS: bloque archivo2_b3almacenado con exito
+[datanode:3003] 2025/11/25 03:44:51.482380 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:45:01.083674 Nueva conexion entrante desde:172.29.79.57:58496
+[datanode:3003] 2025/11/25 03:45:01.085620 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:45:01.090352 Nueva conexion entrante desde:172.29.79.57:58510
+[datanode:3003] 2025/11/25 03:45:01.092109 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:46:08.506082 Nueva conexion entrante desde:172.29.79.57:33314
+[datanode:3003] 2025/11/25 03:46:08.508487 SUCCESS: bloque playa_b0almacenado con exito
+[datanode:3003] 2025/11/25 03:46:08.508730 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:46:42.089131 Nueva conexion entrante desde:172.29.79.57:54390
+[datanode:3003] 2025/11/25 03:46:42.089341 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 03:46:42.089635 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:46:42.090667 Nueva conexion entrante desde:172.29.79.57:54392
+[datanode:3003] 2025/11/25 03:46:42.093960 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:48:44.640627 Nueva conexion entrante desde:172.29.79.57:33118
+[datanode:3003] 2025/11/25 03:48:44.640851 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 03:48:44.641110 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:50:46.492673 Nueva conexion entrante desde:172.29.79.57:39512
+[datanode:3003] 2025/11/25 03:50:46.492875 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 03:50:46.493062 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:52:49.091311 Nueva conexion entrante desde:172.29.79.57:57622
+[datanode:3003] 2025/11/25 03:52:49.091543 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 03:52:49.091743 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:54:51.653844 Nueva conexion entrante desde:172.29.79.57:37986
+[datanode:3003] 2025/11/25 03:54:51.654060 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 03:54:51.654295 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:56:54.234846 Nueva conexion entrante desde:172.29.79.57:47774
+[datanode:3003] 2025/11/25 03:56:54.235028 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 03:56:54.235228 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:58:56.196555 Nueva conexion entrante desde:172.29.79.57:45812
+[datanode:3003] 2025/11/25 03:58:56.196759 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 03:58:56.196953 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.767654 Nueva conexion entrante desde:172.29.79.57:49082
+[datanode:3003] 2025/11/25 03:59:53.770273 SUCCESS: bloque archivo1_b1almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.770578 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.776507 Nueva conexion entrante desde:172.29.79.57:49088
+[datanode:3003] 2025/11/25 03:59:53.778786 SUCCESS: bloque archivo1_b4almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.779043 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.786090 Nueva conexion entrante desde:172.29.79.57:49094
+[datanode:3003] 2025/11/25 03:59:53.788433 SUCCESS: bloque archivo1_b7almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.788725 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.794946 Nueva conexion entrante desde:172.29.79.57:49102
+[datanode:3003] 2025/11/25 03:59:53.797571 SUCCESS: bloque archivo1_b10almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.797883 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.804344 Nueva conexion entrante desde:172.29.79.57:49110
+[datanode:3003] 2025/11/25 03:59:53.807101 SUCCESS: bloque archivo1_b13almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.807410 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.813941 Nueva conexion entrante desde:172.29.79.57:49112
+[datanode:3003] 2025/11/25 03:59:53.816088 SUCCESS: bloque archivo1_b16almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.816365 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.823426 Nueva conexion entrante desde:172.29.79.57:49126
+[datanode:3003] 2025/11/25 03:59:53.825951 SUCCESS: bloque archivo1_b19almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.826283 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.832678 Nueva conexion entrante desde:172.29.79.57:49134
+[datanode:3003] 2025/11/25 03:59:53.835281 SUCCESS: bloque archivo1_b22almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.835566 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.841491 Nueva conexion entrante desde:172.29.79.57:49142
+[datanode:3003] 2025/11/25 03:59:53.843852 SUCCESS: bloque archivo1_b25almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.844152 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.851048 Nueva conexion entrante desde:172.29.79.57:49144
+[datanode:3003] 2025/11/25 03:59:53.853529 SUCCESS: bloque archivo1_b28almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.853917 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.860053 Nueva conexion entrante desde:172.29.79.57:49160
+[datanode:3003] 2025/11/25 03:59:53.862512 SUCCESS: bloque archivo1_b31almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.862811 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.869082 Nueva conexion entrante desde:172.29.79.57:49174
+[datanode:3003] 2025/11/25 03:59:53.871361 SUCCESS: bloque archivo1_b34almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.871770 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.878696 Nueva conexion entrante desde:172.29.79.57:49188
+[datanode:3003] 2025/11/25 03:59:53.881020 SUCCESS: bloque archivo1_b37almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.881309 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.887865 Nueva conexion entrante desde:172.29.79.57:49202
+[datanode:3003] 2025/11/25 03:59:53.890238 SUCCESS: bloque archivo1_b40almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.890532 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.896801 Nueva conexion entrante desde:172.29.79.57:49208
+[datanode:3003] 2025/11/25 03:59:53.899312 SUCCESS: bloque archivo1_b43almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.899738 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.906066 Nueva conexion entrante desde:172.29.79.57:49216
+[datanode:3003] 2025/11/25 03:59:53.908539 SUCCESS: bloque archivo1_b46almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.908819 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.915237 Nueva conexion entrante desde:172.29.79.57:49230
+[datanode:3003] 2025/11/25 03:59:53.917635 SUCCESS: bloque archivo1_b49almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.918013 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.925255 Nueva conexion entrante desde:172.29.79.57:49240
+[datanode:3003] 2025/11/25 03:59:53.928235 SUCCESS: bloque archivo1_b52almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.928566 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.934795 Nueva conexion entrante desde:172.29.79.57:49252
+[datanode:3003] 2025/11/25 03:59:53.937275 SUCCESS: bloque archivo1_b55almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.937613 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.944222 Nueva conexion entrante desde:172.29.79.57:49260
+[datanode:3003] 2025/11/25 03:59:53.946382 SUCCESS: bloque archivo1_b58almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.946645 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.953460 Nueva conexion entrante desde:172.29.79.57:49274
+[datanode:3003] 2025/11/25 03:59:53.956039 SUCCESS: bloque archivo1_b61almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.956355 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 03:59:53.962429 Nueva conexion entrante desde:172.29.79.57:49282
+[datanode:3003] 2025/11/25 03:59:53.965014 SUCCESS: bloque archivo1_b64almacenado con exito
+[datanode:3003] 2025/11/25 03:59:53.965343 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.124031 Nueva conexion entrante desde:172.29.79.57:48274
+[datanode:3003] 2025/11/25 04:00:12.125914 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.131080 Nueva conexion entrante desde:172.29.79.57:48288
+[datanode:3003] 2025/11/25 04:00:12.133324 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.138351 Nueva conexion entrante desde:172.29.79.57:48302
+[datanode:3003] 2025/11/25 04:00:12.140054 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.144713 Nueva conexion entrante desde:172.29.79.57:48314
+[datanode:3003] 2025/11/25 04:00:12.146744 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.151865 Nueva conexion entrante desde:172.29.79.57:48328
+[datanode:3003] 2025/11/25 04:00:12.153393 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.158192 Nueva conexion entrante desde:172.29.79.57:48338
+[datanode:3003] 2025/11/25 04:00:12.159993 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.164695 Nueva conexion entrante desde:172.29.79.57:48354
+[datanode:3003] 2025/11/25 04:00:12.166449 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.171089 Nueva conexion entrante desde:172.29.79.57:48368
+[datanode:3003] 2025/11/25 04:00:12.173556 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.178449 Nueva conexion entrante desde:172.29.79.57:48382
+[datanode:3003] 2025/11/25 04:00:12.180193 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.185500 Nueva conexion entrante desde:172.29.79.57:48392
+[datanode:3003] 2025/11/25 04:00:12.187396 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.192076 Nueva conexion entrante desde:172.29.79.57:48400
+[datanode:3003] 2025/11/25 04:00:12.193773 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.198968 Nueva conexion entrante desde:172.29.79.57:48408
+[datanode:3003] 2025/11/25 04:00:12.200872 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.205739 Nueva conexion entrante desde:172.29.79.57:48418
+[datanode:3003] 2025/11/25 04:00:12.207460 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.212872 Nueva conexion entrante desde:172.29.79.57:48422
+[datanode:3003] 2025/11/25 04:00:12.214778 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.219422 Nueva conexion entrante desde:172.29.79.57:48436
+[datanode:3003] 2025/11/25 04:00:12.221227 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.226317 Nueva conexion entrante desde:172.29.79.57:48444
+[datanode:3003] 2025/11/25 04:00:12.228190 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.233196 Nueva conexion entrante desde:172.29.79.57:48446
+[datanode:3003] 2025/11/25 04:00:12.235126 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.240547 Nueva conexion entrante desde:172.29.79.57:48462
+[datanode:3003] 2025/11/25 04:00:12.242416 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.246893 Nueva conexion entrante desde:172.29.79.57:48472
+[datanode:3003] 2025/11/25 04:00:12.248664 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.253942 Nueva conexion entrante desde:172.29.79.57:48480
+[datanode:3003] 2025/11/25 04:00:12.255670 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.260279 Nueva conexion entrante desde:172.29.79.57:48486
+[datanode:3003] 2025/11/25 04:00:12.261960 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:12.267727 Nueva conexion entrante desde:172.29.79.57:48492
+[datanode:3003] 2025/11/25 04:00:12.269476 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:00:58.693920 Nueva conexion entrante desde:172.29.79.57:50696
+[datanode:3003] 2025/11/25 04:00:58.694111 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:00:58.694315 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:03:01.241207 Nueva conexion entrante desde:172.29.79.57:33762
+[datanode:3003] 2025/11/25 04:03:01.241395 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:03:01.241588 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:05:03.123289 Nueva conexion entrante desde:172.29.79.57:58354
+[datanode:3003] 2025/11/25 04:05:03.123465 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:05:03.123676 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:07:01.066399 Nueva conexion entrante desde:172.29.79.57:49048
+[datanode:3003] 2025/11/25 04:07:01.068650 SUCCESS: bloque archivo2_b1almacenado con exito
+[datanode:3003] 2025/11/25 04:07:01.068870 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:07:01.076511 Nueva conexion entrante desde:172.29.79.57:49064
+[datanode:3003] 2025/11/25 04:07:01.079000 SUCCESS: bloque archivo2_b4almacenado con exito
+[datanode:3003] 2025/11/25 04:07:01.079257 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:07:05.682798 Nueva conexion entrante desde:172.29.79.57:49076
+[datanode:3003] 2025/11/25 04:07:05.682990 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:07:05.683195 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:07:05.684065 Nueva conexion entrante desde:172.29.79.57:49086
+[datanode:3003] 2025/11/25 04:07:05.687229 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:07:05.698157 Nueva conexion entrante desde:172.29.79.57:49092
+[datanode:3003] 2025/11/25 04:07:05.700314 SUCCESS: bloque archivo2_b0almacenado con exito
+[datanode:3003] 2025/11/25 04:07:05.700600 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:07:05.710184 Nueva conexion entrante desde:172.29.79.57:49108
+[datanode:3003] 2025/11/25 04:07:05.713229 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:07:05.737879 Nueva conexion entrante desde:172.29.79.57:49114
+[datanode:3003] 2025/11/25 04:07:05.740262 SUCCESS: bloque archivo2_b3almacenado con exito
+[datanode:3003] 2025/11/25 04:07:05.740538 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:09:08.373087 Nueva conexion entrante desde:172.29.79.57:40262
+[datanode:3003] 2025/11/25 04:09:08.373262 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:09:08.373526 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:11:10.926314 Nueva conexion entrante desde:172.29.79.57:57300
+[datanode:3003] 2025/11/25 04:11:10.926466 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:11:10.926689 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:13:12.868928 Nueva conexion entrante desde:172.29.79.57:57492
+[datanode:3003] 2025/11/25 04:13:12.869070 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:13:12.869247 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:15:15.501181 Nueva conexion entrante desde:172.29.79.57:51272
+[datanode:3003] 2025/11/25 04:15:15.501386 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:15:15.501649 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:17:18.114223 Nueva conexion entrante desde:172.29.79.57:36582
+[datanode:3003] 2025/11/25 04:17:18.114383 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:17:18.114596 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:19:19.991889 Nueva conexion entrante desde:172.29.79.57:42900
+[datanode:3003] 2025/11/25 04:19:19.992121 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:19:19.992358 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:21:22.530468 Nueva conexion entrante desde:172.29.79.57:52032
+[datanode:3003] 2025/11/25 04:21:22.530611 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:21:22.530844 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:23:25.116675 Nueva conexion entrante desde:172.29.79.57:44920
+[datanode:3003] 2025/11/25 04:23:25.116845 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:23:25.117054 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:25:27.819673 Nueva conexion entrante desde:172.29.79.57:40704
+[datanode:3003] 2025/11/25 04:25:27.819943 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:25:27.820188 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:27:29.869457 Nueva conexion entrante desde:172.29.79.57:38150
+[datanode:3003] 2025/11/25 04:27:29.869677 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:27:29.869874 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:29:32.485887 Nueva conexion entrante desde:172.29.79.57:53600
+[datanode:3003] 2025/11/25 04:29:32.486085 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:29:32.486280 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:30:37.582691 Nueva conexion entrante desde:172.29.79.57:39398
+[datanode:3003] 2025/11/25 04:30:37.583038 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:31:01.773756 Nueva conexion entrante desde:172.29.79.57:48786
+[datanode:3003] 2025/11/25 04:31:01.774007 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:31:01.775204 Nueva conexion entrante desde:172.29.79.57:48796
+[datanode:3003] 2025/11/25 04:31:01.775436 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:31:24.720628 Nueva conexion entrante desde:172.29.79.57:49368
+[datanode:3003] 2025/11/25 04:31:24.720850 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:31:24.722319 Nueva conexion entrante desde:172.29.79.57:49372
+[datanode:3003] 2025/11/25 04:31:24.722538 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:31:35.018232 Nueva conexion entrante desde:172.29.79.57:47704
+[datanode:3003] 2025/11/25 04:31:35.018426 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:31:35.018678 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:33:36.938165 Nueva conexion entrante desde:172.29.79.57:43434
+[datanode:3003] 2025/11/25 04:33:36.938318 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:33:36.938540 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:35:39.497922 Nueva conexion entrante desde:172.29.79.57:54396
+[datanode:3003] 2025/11/25 04:35:39.498172 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:35:39.498415 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:37:42.038963 Nueva conexion entrante desde:172.29.79.57:42074
+[datanode:3003] 2025/11/25 04:37:42.039125 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:37:42.039301 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:39:44.569673 Nueva conexion entrante desde:172.29.79.57:39514
+[datanode:3003] 2025/11/25 04:39:44.569834 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:39:44.570036 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:41:46.454076 Nueva conexion entrante desde:172.29.79.57:57824
+[datanode:3003] 2025/11/25 04:41:46.454264 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:41:46.454479 SUCCESS: Mensaje enviado con exito
+[datanode:3003] 2025/11/25 04:43:49.170182 Nueva conexion entrante desde:172.29.79.57:58128
+[datanode:3003] 2025/11/25 04:43:49.170359 El Namenode hizo PING a este datanode
+[datanode:3003] 2025/11/25 04:43:49.170548 SUCCESS: Mensaje enviado con exito

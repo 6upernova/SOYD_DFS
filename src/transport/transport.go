@@ -127,7 +127,7 @@ func (s *Server)Establish_and_send(node_address string, msg Message) (Message, e
 }
 
 func (s *Server)Establish_connection(node_address string) (net.Conn, error) {
-    conn, err := net.Dial("tcp", node_address)
+    conn, err := net.DialTimeout("tcp",node_address, 2*time.Second)
     if err != nil {
         return nil, err
     }
@@ -139,7 +139,7 @@ func (s *Server) Send_tcp_message(conn net.Conn, msg Message) (Message, error) {
     if conn == nil {
         return Message{}, fmt.Errorf("conexion NULL")
     }
-		conn.SetReadDeadline(time.Now().Add(20*time.Second))
+		conn.SetReadDeadline(time.Now().Add(3*time.Second))
 
     err := SendMessage(conn, msg)
     if err != nil {
