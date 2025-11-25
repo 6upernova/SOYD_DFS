@@ -678,11 +678,15 @@ func (m model) renderCat() string {
 
 		for i := start; i < end; i++ {
 			line := lines[i]
-			// Truncar líneas muy largas
-			if len(line) > 75 {
-				line = line[:72] + "..."
+			// Reemplazar tabs por espacios
+			line = strings.ReplaceAll(line, "\t", "    ")
+			// Truncar líneas muy largas (usando rune count para caracteres Unicode)
+			runes := []rune(line)
+			if len(runes) > 68 {
+				line = string(runes[:65]) + "..."
 			}
-			s.WriteString(normalStyle.Render(fmt.Sprintf("%4d │ %s\n", i+1, line)))
+			s.WriteString(normalStyle.Render(fmt.Sprintf("%4d | %s", i+1, line)))
+			s.WriteString("\n")
 		}
 
 		if len(lines) > maxVisible {
