@@ -656,9 +656,28 @@ func (m model) renderInput() string {
 	return s.String()
 }
 
+// wrapLines divide una línea en trozos de tamaño máximo `max` (en runes).
+func wrapLines(line string, max int) []string {
+	r := []rune(line)
+	if len(r) <= max {
+		return []string{line}
+	}
+	out := make([]string, 0, (len(r)/max)+1)
+	for len(r) > 0 {
+		if len(r) > max {
+			out = append(out, string(r[:max]))
+			r = r[max:]
+		} else {
+			out = append(out, string(r))
+			break
+		}
+	}
+	return out
+}
+
 func (m model) renderCat() string {
 	var s strings.Builder
-	
+
 	s.WriteString("\n")
 	s.WriteString(normalStyle.Render("> FILE CONTENT"))
 	s.WriteString("\n\n")
@@ -668,35 +687,48 @@ func (m model) renderCat() string {
 	if m.catContent == "" {
 		s.WriteString(errorStyle.Render("  ERROR: No content available\n"))
 	} else {
-		lines := strings.Split(m.catContent, "\n")
-		maxVisible := 15
-		start := m.catOffset
-		end := start + maxVisible
-		if end > len(lines) {
-			end = len(lines)
+		// 1) Partir el contenido original en líneas "raw"
+		rawLines := strings.Split(m.catContent, "\n")
+
+		// 2) Generar la lista expandida con wrap aplicado
+		const maxWidth = 68
+		wrappedLines := make([]string, 0, len(rawLines))
+		for _, rl := range rawLines {
+			rl = strings.ReplaceAll(rl, "\t", "    ")
+			parts := wrapLines(rl, maxWidth)
+			wrappedLines = append(wrappedLines, parts...)
 		}
 
+		// 3) Asegurar offset en rango
+		maxVisible := 15
+		if m.catOffset < 0 {
+			m.catOffset = 0
+		}
+		if m.catOffset > len(wrappedLines) {
+			m.catOffset = len(wrappedLines)
+		}
+		start := m.catOffset
+		end := start + maxVisible
+		if end > len(wrappedLines) {
+			end = len(wrappedLines)
+		}
+
+		// 4) Renderizado de las líneas visibles
 		for i := start; i < end; i++ {
-			line := lines[i]
-			// Reemplazar tabs por espacios
-			line = strings.ReplaceAll(line, "\t", "    ")
-			// Truncar líneas muy largas (usando rune count para caracteres Unicode)
-			runes := []rune(line)
-			if len(runes) > 68 {
-				line = string(runes[:65]) + "..."
-			}
+			line := wrappedLines[i]
 			s.WriteString(normalStyle.Render(fmt.Sprintf("%4d | %s", i+1, line)))
 			s.WriteString("\n")
 		}
 
-		if len(lines) > maxVisible {
+		// 5) Información de estado
+		if len(wrappedLines) > maxVisible {
 			s.WriteString("\n")
-			s.WriteString(dimStyle.Render(fmt.Sprintf("  Showing lines %d-%d of %d", start+1, end, len(lines))))
+			s.WriteString(dimStyle.Render(fmt.Sprintf("  Showing lines %d-%d of %d", start+1, end, len(wrappedLines))))
 			s.WriteString("\n")
 		}
-		
+
 		s.WriteString("\n")
-		s.WriteString(infoStyle.Render(fmt.Sprintf("  Total size: %d bytes, %d lines", len(m.catContent), len(lines))))
+		s.WriteString(infoStyle.Render(fmt.Sprintf("  Total size: %d bytes, %d lines", len(m.catContent), len(wrappedLines))))
 	}
 
 	s.WriteString("\n\n")
