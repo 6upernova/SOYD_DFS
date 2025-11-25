@@ -519,15 +519,15 @@ func (nn *NameNode) add_replica(filename, blockID, nodeAddr string) {
 	nn.mu.Lock()
 
 	labels := nn.metadata[filename]
-	for _, dn := range data_nodes {
+	for i, dn := range data_nodes {
 		if dn.Address == nodeAddr{
-			dn.Cant_blocks++
+			data_nodes[i].Cant_blocks++
 		}
 	}
 
-	for _, dn := range data_nodes_up{
+	for i, dn := range data_nodes_up{
 		if dn.Address == nodeAddr{
-			dn.Cant_blocks++
+			data_nodes_up[i].Cant_blocks++
 		}
 	}
 

@@ -419,3 +419,8 @@
 [Client] 2025/11/25 02:18:35.356790 Enviando solicitud de info sobre el archivo: locura.txt
 [Client] 2025/11/25 02:18:57.619308 Enviando solicitud de info sobre el archivo: locura.txt
 [Client] 2025/11/25 02:18:57.623799 Archivo: locura.txt guardado en el local con éxito
+[Client] 2025/11/25 02:31:14.455340 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 02:31:14.498252 ERROR: Uno de los bloques no pudo ser eliminado correctamente
+[Client] 2025/11/25 02:31:14.498252 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
+[Client] 2025/11/25 02:31:29.913483 Enviando los bloques a los datanodes
+[Client] 2025/11/25 02:31:29.942323 SUCCESS: El archivo fue almacenado correctamente en el DFS

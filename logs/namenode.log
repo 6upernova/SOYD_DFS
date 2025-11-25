@@ -1169,3 +1169,80 @@
 [namenode] 2025/11/25 02:18:57.622754 Nueva conexion entrante desde:[::1]:63854
 [namenode] 2025/11/25 02:18:57.622754 Peticion de info sobre: locura.txt
 [namenode] 2025/11/25 02:18:57.622754 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:22:58.928177 Nueva conexion entrante desde:192.168.0.120:59052
+[namenode] 2025/11/25 02:22:58.928177 Peticion de los archivos del sistema
+[namenode] 2025/11/25 02:22:58.928177 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:23:04.475320 Nueva conexion entrante desde:192.168.0.120:59054
+[namenode] 2025/11/25 02:23:04.475320 Peticion de info sobre: locura.txt
+[namenode] 2025/11/25 02:23:04.475320 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:23:15.340756 Nueva conexion entrante desde:192.168.0.120:55928
+[namenode] 2025/11/25 02:23:15.340756 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:23:15.386327 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/25 02:23:15.386327 SUCCESS: El PUT fue exitoso y se actualizo el indice
+[namenode] 2025/11/25 02:23:15.424282 Nueva conexion entrante desde:192.168.0.120:55934
+[namenode] 2025/11/25 02:23:15.425300 Peticion de los archivos del sistema
+[namenode] 2025/11/25 02:23:15.425300 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:23:20.603885 Nueva conexion entrante desde:192.168.0.120:58814
+[namenode] 2025/11/25 02:23:20.603885 Peticion de los archivos del sistema
+[namenode] 2025/11/25 02:23:20.603885 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:23:28.269306 Nueva conexion entrante desde:192.168.0.120:49282
+[namenode] 2025/11/25 02:23:28.269306 Peticion de info sobre: playa.txt
+[namenode] 2025/11/25 02:23:28.269306 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:24:57.146136 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/25 02:25:25.857437 Nueva conexion entrante desde:192.168.0.120:55870
+[namenode] 2025/11/25 02:25:25.859911 Peticion de info sobre: locura.txt
+[namenode] 2025/11/25 02:25:25.859911 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:25:47.970498 Nueva conexion entrante desde:192.168.0.120:39738
+[namenode] 2025/11/25 02:25:47.970498 Peticion de info sobre: playa.txt
+[namenode] 2025/11/25 02:25:47.970498 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:30:00.800672 Nueva conexion entrante desde:192.168.0.120:39382
+[namenode] 2025/11/25 02:30:00.800672 Peticion de info sobre: playa.txt
+[namenode] 2025/11/25 02:30:00.800672 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:31:14.453201 Nueva conexion entrante desde:[::1]:63921
+[namenode] 2025/11/25 02:31:14.453201 Peticion de info sobre: playa.txt
+[namenode] 2025/11/25 02:31:14.453201 Metadata Eliminada con exito
+[namenode] 2025/11/25 02:31:14.454272 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/25 02:31:14.454789 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:31:17.529608 Nueva conexion entrante desde:[::1]:63924
+[namenode] 2025/11/25 02:31:17.529619 Peticion de los archivos del sistema
+[namenode] 2025/11/25 02:31:17.529619 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:31:29.912951 Nueva conexion entrante desde:[::1]:63925
+[namenode] 2025/11/25 02:31:29.913476 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:31:29.943397 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/25 02:31:29.943397 SUCCESS: El PUT fue exitoso y se actualizo el indice
+[namenode] 2025/11/25 02:31:29.945020 Nueva conexion entrante desde:[::1]:63927
+[namenode] 2025/11/25 02:31:29.945020 Peticion de los archivos del sistema
+[namenode] 2025/11/25 02:31:29.945020 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:32:57.434131 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/25 02:35:25.790465 Cargando la metadata al sistema
+[namenode] 2025/11/25 02:35:25.834443 Server Started on: 192.168.0.153:9000
+[namenode] 2025/11/25 02:35:57.175284 Cargando la metadata al sistema
+[namenode] 2025/11/25 02:35:57.179472 Server Started on: 192.168.0.153:9000
+[namenode] 2025/11/25 02:36:03.205389 Nueva conexion entrante desde:[::1]:63957
+[namenode] 2025/11/25 02:36:03.205389 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:36:04.841032 Nueva conexion entrante desde:[::1]:63960
+[namenode] 2025/11/25 02:36:04.841032 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:36:11.850923 Nueva conexion entrante desde:192.168.0.120:49910
+[namenode] 2025/11/25 02:36:11.851460 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:36:32.063908 Nueva conexion entrante desde:192.168.0.120:52316
+[namenode] 2025/11/25 02:36:32.065393 Peticion de los archivos del sistema
+[namenode] 2025/11/25 02:36:32.065577 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:36:37.183642 Nueva conexion entrante desde:192.168.0.120:52580
+[namenode] 2025/11/25 02:36:37.183642 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:36:37.230185 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/25 02:36:37.230185 SUCCESS: El PUT fue exitoso y se actualizo el indice
+[namenode] 2025/11/25 02:36:37.281916 Nueva conexion entrante desde:192.168.0.120:52586
+[namenode] 2025/11/25 02:36:37.281916 Peticion de los archivos del sistema
+[namenode] 2025/11/25 02:36:37.282422 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:36:48.430841 Nueva conexion entrante desde:192.168.0.120:54498
+[namenode] 2025/11/25 02:36:48.430841 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:36:48.471955 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/25 02:36:48.471955 SUCCESS: El PUT fue exitoso y se actualizo el indice
+[namenode] 2025/11/25 02:36:48.510550 Nueva conexion entrante desde:192.168.0.120:54500
+[namenode] 2025/11/25 02:36:48.510550 Peticion de los archivos del sistema
+[namenode] 2025/11/25 02:36:48.510550 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:36:51.914977 Nueva conexion entrante desde:192.168.0.120:54506
+[namenode] 2025/11/25 02:36:51.914977 Peticion de los archivos del sistema
+[namenode] 2025/11/25 02:36:51.914977 SUCCESS: Mensaje enviado con exito
+[namenode] 2025/11/25 02:37:57.254428 SUCCES: Se guardo exitosamente la metadata en metadata.json
+[namenode] 2025/11/25 02:37:57.287833 SUCCES: Se guardo exitosamente la metadata en metadata.json
