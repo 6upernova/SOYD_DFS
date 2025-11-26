@@ -63,6 +63,8 @@ func main(){
 
 }
 
+
+// ------------------------------------------------------------------- Replication Service Managment -------------------------------------------------------------------------
 // Este servicio se encarga de generar replicas para cada uno de los bloques almacenados en la metadata
 // Utiliza la lista de data_nodes_up para saber si los nodos que contienen las replicas siguen despiertos
 func (nn *NameNode) start_replication_service(){
@@ -92,7 +94,6 @@ func (nn *NameNode) check_replication(){
 
 	}
 }
-
 
 func (nn *NameNode) replicate_block(filename string, block_id string, replics_addr []string){
 	
@@ -154,7 +155,7 @@ func build_blocks_map(labels []transport.Label) map[string][]string {
 
 
 
-//TCP server Managment
+//-------------------------------------------------Connection Managment------------------------------------------------------------------------------------------------------
 
 func (nn *NameNode) HandleConnection(conn net.Conn){
 
@@ -399,7 +400,8 @@ func (nn *NameNode) rm(filename string, answer_msg *transport.Message){
 
 
 
-// Metadata and ED Managment
+// ----------------------------------------------------------------------Metadata and ED Managment-----------------------------------------------------------------------
+
 func create_name_node(metadata_path string) *NameNode{
 	return &NameNode{
 		metadata: make(Metadata),
@@ -465,14 +467,14 @@ func (nn *NameNode) add_metadata(archive_name string, nodes []transport.Label) {
 
 	// iterar todas las direcciones de cada label
 	for _, lbl := range nodes {
-			for _, addr := range lbl.Node_address {
-					if pos, ok := index[addr]; ok {
-							data_nodes[pos].Cant_blocks++
-					}
-					if pos, ok := index2[addr]; ok{
-						data_nodes_up[pos].Cant_blocks++
-					}
+		for _, addr := range lbl.Node_address {
+			if pos, ok := index[addr]; ok {
+				data_nodes[pos].Cant_blocks++
 			}
+			if pos, ok := index2[addr]; ok{
+				data_nodes_up[pos].Cant_blocks++
+			}
+		}
 	}
 }
 func (nn *NameNode) remove_metadata(archive_name string) {
@@ -532,21 +534,21 @@ func (nn *NameNode) add_replica(filename, blockID, nodeAddr string) {
 	}
 
 	for i := range labels {
-			lbl := &labels[i]
-			if lbl.Block == blockID {
-
-					for _, addr := range lbl.Node_address {
-							if addr == nodeAddr {
-									return // ya existe
-							}
-					}
-
-					lbl.Node_address = append(lbl.Node_address, nodeAddr)
-
-					nn.metadata[filename] = labels
-					nn.mu.Unlock()
-					return
+		lbl := &labels[i]
+		if lbl.Block == blockID {
+			for _, addr := range lbl.Node_address {
+				if addr == nodeAddr {
+					// Ya existe en la lista
+					return 
+				}
 			}
+
+			lbl.Node_address = append(lbl.Node_address, nodeAddr)
+
+			nn.metadata[filename] = labels
+			nn.mu.Unlock()
+			return
+		}
 	}
 	nn.mu.Unlock()
 }

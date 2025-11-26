@@ -424,3 +424,13 @@
 [Client] 2025/11/25 02:31:14.498252 ATENCION: El archivo sera eliminado del indice pero quedaron nodos con el bloque
 [Client] 2025/11/25 02:31:29.913483 Enviando los bloques a los datanodes
 [Client] 2025/11/25 02:31:29.942323 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/25 20:53:16.998394 Enviando solicitud de info sobre el archivo: playa.txt
+[Client] 2025/11/25 20:53:19.001810 ERROR: GET_BLOCK falló en 192.168.0.153:3002 para block b0
+[Client] 2025/11/25 20:53:21.003166 ERROR: GET_BLOCK falló en 192.168.0.120:3004 para block b0
+[Client] 2025/11/25 20:53:21.003454 ERROR FATAL: ninguna réplica respondió para el bloque b0
+[Client] 2025/11/25 20:53:28.690537 Enviando los bloques a los datanodes
+[Client] 2025/11/25 20:53:28.694187 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/25 20:53:34.013533 Enviando solicitud de info sobre el archivo: playa.txt
+[Client] 2025/11/25 20:53:38.981122 Enviando los bloques a los datanodes
+[Client] 2025/11/25 20:53:39.237114 SUCCESS: El archivo fue almacenado correctamente en el DFS
+[Client] 2025/11/25 20:53:42.809084 Enviando solicitud de info sobre el archivo: archivo1.txt

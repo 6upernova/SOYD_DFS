@@ -337,43 +337,86 @@ func (m model) updateInput(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 	m.input, cmd = m.input.Update(msg)
 	return m, cmd
 }
-
 func (m model) updateCat(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
-	lines := strings.Split(m.catContent, "\n")
-	maxVisible := 15
+    // 1) Obtener raw lines
+    raw := strings.Split(m.catContent, "\n")
+
+    // 2) Expandirlas igual que en renderCat
+    const maxWidth = 68
+    wrapped := make([]string, 0, len(raw))
+    for _, rl := range raw {
+        rl = strings.ReplaceAll(rl, "\t", "    ")
+        parts := wrapLines(rl, maxWidth)
+        wrapped = append(wrapped, parts...)
+    }
+
+    maxVisible := 15
+    total := len(wrapped)
+
+    switch msg.String() {
+    case "ctrl+c", "esc", "q", "enter":
+        m.currentScreen = menuScreen
+        m.message = ""
+        m.cursor = 0
+        m.catOffset = 0
+        return m, nil
+
+    case "up", "k":
+        if m.catOffset > 0 {
+            m.catOffset--
+        }
+
+    case "down", "j":
+        if m.catOffset < total-maxVisible {
+            m.catOffset++
+        }
+
+    case "pgup":
+        m.catOffset -= maxVisible
+        if m.catOffset < 0 {
+            m.catOffset = 0
+        }
+
+    case "pgdown":
+        m.catOffset += maxVisible
+        if m.catOffset > total-maxVisible {
+            m.catOffset = total - maxVisible
+        }
+        if m.catOffset < 0 {
+            m.catOffset = 0
+        }
+    }
+
+    return m, nil
+}
+
+func (m model) updateInfo(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
+	maxVisible := 8
 
 	switch msg.String() {
 	case "ctrl+c", "esc", "q", "enter":
 		m.currentScreen = menuScreen
 		m.message = ""
 		m.cursor = 0
-		m.catOffset = 0
+		m.listOffset = 0
 		return m, nil
 	case "up", "k":
-		if m.catOffset > 0 {
-			m.catOffset--
+		if m.cursor > 0 {
+			m.cursor--
+			if m.cursor < m.listOffset {
+				m.listOffset--
+			}
 		}
 	case "down", "j":
-		if m.catOffset < len(lines)-maxVisible {
-			m.catOffset++
-		}
-	case "pgup":
-		m.catOffset -= maxVisible
-		if m.catOffset < 0 {
-			m.catOffset = 0
-		}
-	case "pgdown":
-		m.catOffset += maxVisible
-		if m.catOffset > len(lines)-maxVisible {
-			m.catOffset = len(lines) - maxVisible
-		}
-		if m.catOffset < 0 {
-			m.catOffset = 0
+		if m.cursor < len(m.fileInfo)-1 {
+			m.cursor++
+			if m.cursor >= m.listOffset+maxVisible {
+				m.listOffset++
+			}
 		}
 	}
 	return m, nil
 }
-
 func (m model) updateList(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 	maxVisible := 10
 
@@ -421,34 +464,6 @@ func (m model) updateList(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 			m.listOffset = 0
 		}
 		return m, nil
-	}
-	return m, nil
-}
-
-func (m model) updateInfo(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
-	maxVisible := 8
-
-	switch msg.String() {
-	case "ctrl+c", "esc", "q", "enter":
-		m.currentScreen = menuScreen
-		m.message = ""
-		m.cursor = 0
-		m.listOffset = 0
-		return m, nil
-	case "up", "k":
-		if m.cursor > 0 {
-			m.cursor--
-			if m.cursor < m.listOffset {
-				m.listOffset--
-			}
-		}
-	case "down", "j":
-		if m.cursor < len(m.fileInfo)-1 {
-			m.cursor++
-			if m.cursor >= m.listOffset+maxVisible {
-				m.listOffset++
-			}
-		}
 	}
 	return m, nil
 }
@@ -656,7 +671,10 @@ func (m model) renderInput() string {
 	return s.String()
 }
 
+<<<<<<< HEAD
 // wrapLines divide una línea en trozos de tamaño máximo `max` (en runes).
+=======
+>>>>>>> adbde3c (Entrega)
 func wrapLines(line string, max int) []string {
 	r := []rune(line)
 	if len(r) <= max {

@@ -261,12 +261,10 @@ func (c *DFSClient) Rm(filename string) error{
 			dnResMsg, err := c.Server.Establish_and_send(addr, dnMsg)
 			
 			if err != nil {
-				c.Server.MsgLog("ERROR: al intentar establecer conexión con uno de los datanodes")
 				fileRemoved = false
 				continue
 			}
 			if dnResMsg.Cmd != "RM_BLOCK_OK" {
-				c.Server.MsgLog("ERROR: Uno de los bloques no pudo ser eliminado correctamente")
 				fileRemoved = false
 				continue
 			}
