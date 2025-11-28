@@ -1,3 +1,4 @@
+![alt text](Foto.png)
 
 # Estructura general del proyecto
 
@@ -17,12 +18,15 @@ Si se quiere ejecutar el proyecto se hace desde la carpeta SOYD_DFS y se ejecuta
 `$ go run ./src/namenode.go`
 
 Es por un tema de los paths relativos y absolutos
+
 # Funcionalidades Basicas
+
 - Put
 - Get
 - Ls
 - Info
 - Loggers
+
 # Extras
 
 - Framing de mensajes

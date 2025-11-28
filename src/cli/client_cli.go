@@ -671,10 +671,6 @@ func (m model) renderInput() string {
 	return s.String()
 }
 
-<<<<<<< HEAD
-// wrapLines divide una línea en trozos de tamaño máximo `max` (en runes).
-=======
->>>>>>> adbde3c (Entrega)
 func wrapLines(line string, max int) []string {
 	r := []rune(line)
 	if len(r) <= max {
